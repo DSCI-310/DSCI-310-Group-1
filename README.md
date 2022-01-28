@@ -2,4 +2,4 @@
 Group Project Repo for Group 1
 
 # Team members
-Andres, Daniel
+Andres, Daniel, Zizhen
