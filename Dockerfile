@@ -1,4 +1,4 @@
-# Use scipy notebook as default
+# Use scipy notebook as default 
 FROM jupyter/scipy-notebook
 
 #install python packages
