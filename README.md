@@ -33,13 +33,17 @@ We test the model with cross validation and get an average cv-score of -4.61, wh
 
 ## How to run?
 
-### From Dockerhub
-
-
-
 ### Clone the repository
+open your terminal
+git clone https://github.com/DSCI-310/DSCI-310-Group-1.git
+cd DSCI-310-Group-1
 
+### From Dockerhub
+Naviagte to the following website
+https://hub.docker.com/r/danielhou13/dsci-310-project
 
+Open your terminal
+docker pull danielhou13/dsci-310-project
 
 
 
