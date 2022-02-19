@@ -1,20 +1,42 @@
-# Project title
+# Predicting students’ grades using multi-variable regression
 
 **Contributors:** Andres, Daniel, Zizhen, Timothy
 
 
 
-
-
 ## Summary
 
-TODO
+For this project, we put our focus on predicting students’ final grades. Being able to efficiently predict the final grade allows a student to track their current progress and plan in advanced. The dataset being used is recorded at [UCI ML Repo](https://archive-beta.ics.uci.edu/ml/datasets/student+performance). We are particularly interested in how would the following features provided in the data could contribute to the prediction of students’ final grade `G3`:
+
+- `study time`: The number of hours spend studying per week.
+- `Pstatus`: Whether the parents are living together or seperated.
+- `Medu`: Mother's education level.
+- `Fedu`: Father's education level.
+- `Mjob`: The mother's job.
+- `Fjob`: The father’s job.
+- `goout`: Frequency of that student hanging out with friends.
+
+
+
+Since we are using a mixture of categorical variables and numeric variables to predict a quantitative result, the concept of least square regression analysis from DSCI 100 could be implemented and extended to fit our context.
+
+[Methods summary]
+
+
+
+[Results summary]
 
 
 
 ## How to run?
 
-TODO
+### From Dockerhub
+
+
+
+### Clone the repository
+
+
 
 
 
@@ -26,11 +48,12 @@ TODO
 
   | Package      | Version |
   | ------------ | ------- |
-| pandas       | 1.4.1   |
+  | pandas       | 1.4.1   |
   | matplotlib   | 3.5.1   |
   | scikit-learn | 1.0.2   |
   | numpy        | 1.21.2  |
-  
+
+
 
 ---
 
