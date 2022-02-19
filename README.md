@@ -21,10 +21,12 @@ For this project, we put our focus on predicting students’ final grades. Being
 Since we are using a mixture of categorical variables and numeric variables to predict a quantitative result, the concept of least square regression analysis from DSCI 100 could be implemented and extended to fit our context.
 
 [Methods summary]
+We performed a 80-20 split on the dataset and trained a multi-variable least-square regression model on the training data with the 9 features we selected for the model. 
 
 
 
 [Results summary]
+We test the model with cross validation and get an average cv-score of -4.66 and a RMSE error of 3.88.
 
 
 
