@@ -26,7 +26,7 @@ TODO
 
   | Package      | Version |
   | ------------ | ------- |
-  | pandas       |         |
+  | pandas       | 3.5.1   |
   | matplotlib   |         |
   | scikit-learn |         |
   | numpy        |         |
