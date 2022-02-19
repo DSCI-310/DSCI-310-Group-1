@@ -15,18 +15,19 @@ For this project, we put our focus on predicting students’ final grades. Being
 - `Mjob`: The mother's job.
 - `Fjob`: The father’s job.
 - `goout`: Frequency of that student hanging out with friends.
-
+- `romantic`: Whether the student is in a romantic relationship
+- `travel time`: How long it takes for the student to get to school
 
 
 Since we are using a mixture of categorical variables and numeric variables to predict a quantitative result, the concept of least square regression analysis from DSCI 100 could be implemented and extended to fit our context.
 
 [Methods summary]
-We performed a 80-20 split on the dataset and trained a multi-variable least-square regression model on the training data with the 9 features we selected for the model. 
+We performed a 80-20 split on the dataset and trained a multi-variable least-square regression model on the training data with the 9 features we selected for the model. The simplest method of doing least squares regression is Ridge Regression, which is functionally similar to Linear Regression, but better at avoiding unexpected coefficients.
 
 
 
 [Results summary]
-We test the model with cross validation and get an average cv-score of -4.66 and a RMSE error of 3.88.
+We test the model with cross validation and get an average cv-score of -4.61, which means an error of 4.61 and a final RMSE error of 3.83.
 
 
 
@@ -54,11 +55,6 @@ We test the model with cross validation and get an average cv-score of -4.66 and
   | matplotlib   | >= 3.4.0 |
   | scikit-learn | >= 1.0.0 |
   | numpy        | >= 1.2.0 |
-
-
-
-
-
 
 ---
 
