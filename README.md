@@ -50,6 +50,13 @@ docker build --tag dsci-310-project DSCI-310-Group-1
 
 docker run -it dsci-310-project
 ```
+### From Dockerhub
+Naviagte to the following website
+https://hub.docker.com/r/danielhou13/dsci-310-project
+
+Open your terminal
+docker pull danielhou13/dsci-310-project
+>>>>>>> 341e6f68c1bb7df694d38a2982d9de43588c7bdf
 
 
 
