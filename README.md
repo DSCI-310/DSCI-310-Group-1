@@ -15,8 +15,8 @@ For this project, we put our focus on predicting students’ final grades. Being
 - `Mjob`: The mother's job.
 - `Fjob`: The father’s job.
 - `goout`: Frequency of that student hanging out with friends.
-- `romantic`: Whether the student is in a romantic relationship
-- `travel time`: How long it takes for the student to get to school
+- `romantic`: Whether the student is in a romantic relationship.
+- `travel time`: How long it takes for the student to get to school.
 
 
 Since we are using a mixture of categorical variables and numeric variables to predict a quantitative result, the concept of least square regression analysis from DSCI 100 could be implemented and extended to fit our context.
