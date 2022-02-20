@@ -54,7 +54,7 @@ docker run -it dsci-310-project
 
 ## Dependencies
 
-- Docker base image: `continuumio/anaconda3`
+- Docker base image: `jupyter/scipy-notebook`
 
 - Python dependencies:
 
