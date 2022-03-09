@@ -54,7 +54,7 @@ docker run -it dsci-310-project
 
 ## Dependencies
 
-- Docker base image: `jupyter/scipy-notebook:version hub-2.1.1` 
+- Docker base image: `jupyter/scipy-notebook:hub-2.1.1` 
 
 - Python dependencies:
 
