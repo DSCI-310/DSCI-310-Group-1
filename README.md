@@ -54,7 +54,7 @@ docker run -it dsci-310-project
 
 ## Dependencies
 
-- Docker base image: `jupyter/scipy-notebook`
+- Docker base image: `jupyter/scipy-notebook` version hub-2.1.1
 
 - Python dependencies:
 
@@ -64,6 +64,7 @@ docker run -it dsci-310-project
   | matplotlib   | >= 3.4.0 |
   | scikit-learn | >= 1.0.0 |
   | numpy        | >= 1.2.0 |
+  | pytest       | >= 7.0.1 |
 
 
 
