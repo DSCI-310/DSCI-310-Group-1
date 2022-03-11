@@ -25,36 +25,40 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
     if isinstance(x_df, pd.DataFrame) and isinstance(y_df, pd.DataFrame) and x_df.shape[0] == y_df.shape[0]:
         if isinstance(desiredFeatures, list) and isinstance(desiredFeatures[0], str):
             if isinstance(titles, list) and isinstance(titles[0], str) and len(titles) == len(desiredFeatures):
-		if ! isinstance(txt, str):
-			raise TypeError("The last two arguments are not dataframes of equal length")
+				if ! isinstance(txt, str):
+					raise TypeError("The last argument is not a string")
 
-		# This will form a minimum sized box for the plots to go in, preferring horizontal boxes
-		# will aways preffer to create a box rather than make vertical spanning blocks if there are many
-		side_length_x = int(len(titles)**(1/2))
-		side_length_y = int(len(titles)**(1/2))
-		if side_length_x * side_length_y < len(titles):
-			side_length_x += 1
-			if side_length_x * side_length_y < len(titles):
-				side_length_y += 1
+				# This will form a minimum sized box for the plots to go in, preferring horizontal boxes
+				# will aways preffer to create a box rather than make vertical spanning blocks if there are many
+				side_length_x = int(len(titles)**(1/2))
+				side_length_y = int(len(titles)**(1/2))
+				if side_length_x * side_length_y < len(titles):
+					side_length_x += 1
+					if side_length_x * side_length_y < len(titles):
+						side_length_y += 1
 
 
-		fig, axs = plt.subplots(side_length_y, side_length_x, figsize=(10,10))
+				fig, axs = plt.subplots(side_length_y, side_length_x, figsize=(10,10))
 
-		x = 0
-		y = 0
-		for i, feature in enumerate(desuredFeatures):
-			axs[y, x].scatter(x_df[desiredFeatures[i]], y_df)
-			axs[y, x].set_title(titles[i])
-			x += 1
-			if x > side_length_x:
 				x = 0
-				y += 1
+				y = 0
+				try:
+					for i, feature in enumerate(desuredFeatures):
+						axs[y, x].scatter(x_df[desiredFeatures[i]], y_df)
+						axs[y, x].set_title(titles[i])
+						x += 1
+						if x > side_length_x:
+							x = 0
+							y += 1
+				except:
+					raise TypeError("desiredFeature is not in dependent dataframe")
 
-		plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
-		
-		return axs
-	    else:
-		raise TypeError("titles is not a list of strings of length equal to desiredFeatures")
+
+				plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
+
+				return axs
+			else:
+				raise TypeError("titles is not a list of strings of length equal to desiredFeatures")
         else:
             raise TypeError("desiredFeatures is not a list of strings length at least 1")
     else:
