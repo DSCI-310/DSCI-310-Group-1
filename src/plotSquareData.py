@@ -14,7 +14,7 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
     # @param titles The respective titles(s) desired for your plot(s) in list form
 	# @param txt the text to display as a string over the plot
     #
-    # @return 
+    # @return axy for testing purposes on the features of the plot
     #
     # @examples
     # plot_square_data(X_train, y_train, ["feature1", "feature2", "feature3"], ["title1", "title2", "title3], "This is Plot 1")
@@ -51,6 +51,8 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
 				y += 1
 
 		plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
+		
+		return axs
 	    else:
 		raise TypeError("titles is not a list of strings of length equal to desiredFeatures")
         else:
