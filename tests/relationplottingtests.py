@@ -85,49 +85,82 @@ class Test_Square_Plot:
         print("testing whether a set of 4 plots plots correctly in size and title (every plot in perfect square)" )
         assert self.check_axs_equal(self, axs, test_axs)
         
-    # TODO FROM THIS POINT
-    def test_bad_not_dataframes(self):
+    def test_bad_not_dataframes_1(self):
         
-        print("testing ..." )
-        
-        with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
-            assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
-    
-    def test_bad_not_equal_length(self):
-        
-        print("testing ..." )
+        print("testing wrong input on on initial dataframes (first)" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            test_axs = plot_square_data(X_train, "hello", ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
+            
+     def test_bad_not_dataframes_2(self):
+        
+        print("testing wrong input on on initial dataframes (second)" )
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data("hello", y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
+            assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
+            
+    def test_bad_dataframes_size(self):
+        
+        print("testing that dataframes dont work when not same length" )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, pd.DataFrame(), ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
+            assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
+            
             
     def test_bad_not_desired_not_list(self):
         
-        print("testing ..." )
+        print("testing that desired inputs is appropriate list" )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, [], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
+            assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, [1,2,3], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
+            assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
+            assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
+            
+    def test_bad_titles(self):
+        
+        print("testing that desired titles is appropriate list" )
         
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
-            assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
+                                    [], txt)
+            assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    [1,2,3], txt)
+            assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["alpha"], txt)
+            assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
             
     def test_bad_not_txt_not_string(self):
         
-        print("testing ..." )
+        print("testing that last argument crashes on incorrect input" )
         
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], 123)
             assert str(exc_info.value) == 'The last argument is not a string'
             
     def test_bad_feature_dne(self):
         
-        print("testing ..." )
+        print("testing for invalid column names as desiredFeature" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plot_square_data(X_train, y_train, ["china", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
             assert str(exc_info.value) == 'desiredFeature is not in dependent dataframe'
             
