@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from pandas.testing import assert_frame_equal, assert_series_equal
 import numpy as np
+import matplotlib.pyplot as plt
 
 import os
 path_parent = os.path.dirname(os.getcwd())
@@ -21,70 +22,112 @@ csv_file = compressed_file.open('student-mat.csv')
 df = pd.read_csv(csv_file,sep = ";")
 
 train_df, test_df = train_test_split(df, test_size = 0.2, random_state=100)
-
 #make training and testing split
 desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
 X_train, y_train = split_xy(train_df, desiredfeatures, "G3")
 X_test, y_test = split_xy(test_df, desiredfeatures, "G3")
 
 class Test_Square_Plot:
-    def test_desiredfeatures_list(self):
-        X_train2 = train_df[desiredfeatures]
-        X_test2 = test_df[desiredfeatures]
+    def check_axs_equal(self, ax1, ax2):
+        retval = True
+        if ax1.getGeometry() != ax2.getGeometry():
+            return False
+        for i in range(ax1.getGeometry()[0]):
+            for j in range(ax1.getGeometry()[1]):
+                if ax1[i,j].title() != ax2[i,j].title():
+                    return False
+        return True
         
-        print("testing whether passing in a list of desiredfeatures produces correct output" )
-        assert_frame_equal(X_train, X_train2)
-        assert_frame_equal(X_test, X_test2)
-    
-    def test_desiredfeatures_string(self):
-        X_train2 = train_df["studytime"]
-        X_test2 = test_df["studytime"]
+    def test_good_5items_incomplete(self):
         
-        print("testing whether passing in a list of desiredfeatures produces correct output" )
-        X_train, _= split_xy(train_df, "studytime", "G3")
-        X_test, _ = split_xy(test_df, "studytime", "G3")
-        assert_series_equal(X_train, X_train2)
-        assert_series_equal(X_test, X_test2)
-    
-    def test_target_list(self):
-        # making a new list of features
-        samplefeatures = ["studytime", "Pstatus", "Medu"]
-        y_train2 = train_df[samplefeatures]
-        y_test2 = test_df[samplefeatures]
+        fig, axs = plt.subplots(2, 3, figsize=(10,10))
+        axs[0, 0].scatter(X_train["studytime"], y_train)
+        axs[0, 0].set_title('study time vs grade')
+        axs[0, 1].scatter(X_train["Medu"], y_train)
+        axs[0, 1].set_title('Mother education vs grade')
+        axs[0, 2].scatter(X_train["Fedu"], y_train)
+        axs[0, 2].set_title('Father education vs grade')
+        axs[1, 0].scatter(X_train["goout"], y_train)
+        axs[1, 0].set_title('time spent with friends vs grade')
+        axs[1, 1].scatter(X_train["traveltime"], y_train)
+        axs[1, 1].set_title('travel time vs grade')
+        txt = "Figure 2 A series of plots examining the numeric features compared to predicted grade"
+        plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
+
+        test_axs = plot_square_data(X_train, y_train, ["studytime", "Medu", "Fedu", "goout", "traveltime"], 
+                                    ["study time vs grade", "Mother education vs grade", "Father education vs grade", 
+                                     "time spent with friends vs grade", "travel time vs grade"], txt)
         
-        print("testing whether passing in a single produces correct output")
-        _, y_train= split_xy(train_df, "studytime", samplefeatures)
-        _, y_test = split_xy(test_df, "studytime", samplefeatures)
-        assert_frame_equal(y_train, y_train2)
-        assert_frame_equal(y_test, y_test2)
-    
-    def test_target_string(self):
-        y_train2 = train_df["G3"]
-        y_test2 = test_df["G3"]
         
-        print("testing whether passing in a single produces correct output")
-        _, y_train = split_xy(train_df, desiredfeatures, "G3")
-        _, y_test = split_xy(test_df, desiredfeatures, "G3")
-        assert_series_equal(y_train, y_train2)
-        assert_series_equal(y_test, y_test2)
+        
+        print("testing whether a set of 5 plots plots correctly in size and title (plots have some room for placement case)" )
+        assert self.check_axs_equal(self, axs, test_axs)
     
-    def test_faultyvariable_in_list(self):
-        print("make sure that we properly get an error when inputting desired/target feature we don't have within a list")
-        with pytest.raises(KeyError):
-            X_train, y_train = split_xy(train_df, ["studytime", "asodfiajsdofi"], "G3")
-            X_train, y_train = split_xy(train_df, "G3", ["studytime", "asodfiajsdofi"])
+    def test_good_4items_complete(self):
+        
+        fig, axs = plt.subplots(2, 2, figsize=(10,10))
+        axs[0, 0].hist(X_train["Pstatus"])
+        axs[0, 0].set_title('P status vs grade')
+        axs[0, 1].hist(X_train["Mjob"])
+        axs[0, 1].set_title('Mother job vs grade')
+        axs[1, 0].hist(X_train["Fjob"])
+        axs[1, 0].set_title('Father Job vs grade')
+        axs[1, 1].hist(X_train["romantic"])
+        axs[1, 1].set_title('Relationship status vs grade')
+        txt = "Figure 3 A series of histograms examining the distribution of categorical features"
+        plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
+
+        test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+        
+        
+        
+        print("testing whether a set of 4 plots plots correctly in size and title (every plot in perfect square)" )
+        assert self.check_axs_equal(self, axs, test_axs)
+        
+    # TODO FROM THIS POINT
+    def test_bad_not_dataframes(self):
+        
+        print("testing ..." )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
     
-    def test_faulty_single_variable(self):
-        print("make sure that we properly get an error when inputting single desired/target feature we don't have")
-        with pytest.raises(KeyError):
-            X_train, y_train = split_xy(train_df, desiredfeatures, "There_will_be_nothing_here")
-            X_train, y_train = split_xy(train_df, "There_will_be_nothing_here", desiredfeatures)
-    
-    def test_incorrect_inputtype(self):
-        print("make sure that each of our inputs correctly throws a type error")
-        print("throw type error when first input is not a df")
-        print("throw type error when second or third input is not a list/str")
-        with pytest.raises(TypeError):
-            X_train, y_train = split_xy(3, desiredfeatures, "G3")
-            X_train, y_train = split_xy(train_df, np.array([1, 2, 3, 4]), "G3")
-            X_train, y_train = split_xy(train_df, "G3", np.array([1, 2, 3, 4]))
+    def test_bad_not_equal_length(self):
+        
+        print("testing ..." )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
+            
+    def test_bad_not_desired_not_list(self):
+        
+        print("testing ..." )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
+            
+    def test_bad_not_txt_not_string(self):
+        
+        print("testing ..." )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            assert str(exc_info.value) == 'The last argument is not a string'
+            
+    def test_bad_feature_dne(self):
+        
+        print("testing ..." )
+        
+        with pytest.raises(TypeError) as e_info:
+            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+            assert str(exc_info.value) == 'desiredFeature is not in dependent dataframe'
+            
