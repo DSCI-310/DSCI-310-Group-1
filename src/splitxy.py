@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import warnings as wa
 
 def split_xy(df, desiredfeatures, target):
     # Split data into target and desired features
@@ -23,6 +24,14 @@ def split_xy(df, desiredfeatures, target):
     # X_train, y_train = split_xy(train_df, "G3", ["feature1", "feature2", "feature3"])
     X_df = None
     y_df = None
+    
+    if isinstance(desiredfeatures, str) and isinstance(target, str):
+        if target == desiredfeatures:
+            wa.warn("Desiredfeatures and target have features in common. Are you sure?", UserWarning)
+    elif any(item in desiredfeatures for item in target) or any(item in target for item in desiredfeatures):
+        list1 = set(desiredfeatures)
+        both = list1.intersection(target)
+        wa.warn("Desiredfeatures and target have features in common. Are you sure?", UserWarning)
     
     if isinstance(df, pd.DataFrame):
         if isinstance(desiredfeatures, str) or isinstance(desiredfeatures, list):
