@@ -11,7 +11,9 @@ sys.path.append("..")
 from src import splitxy
 import warnings
 
-compressed_file = zipfile.ZipFile('tests/testdata/student.zip')
+URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
+urllib.request.urlretrieve(URL, "data/raw/student.zip")
+compressed_file = zipfile.ZipFile('data/raw/student.zip')
 csv_file = compressed_file.open('student-mat.csv')
 df = pd.read_csv(csv_file,sep = ";")
 
