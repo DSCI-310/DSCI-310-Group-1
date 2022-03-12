@@ -51,6 +51,9 @@ docker build --tag dsci-310-project DSCI-310-Group-1
 docker run -it dsci-310-project
 ```
 
+### Clone the repository
+
+To run the tests, please go to the root folder of the project and use the command `pytest`
 
 ## Dependencies
 
