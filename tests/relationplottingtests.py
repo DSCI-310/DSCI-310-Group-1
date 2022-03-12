@@ -14,6 +14,7 @@ print(os.getcwd())
 import sys
 sys.path.append("./src")
 from splitxy import split_xy
+from plotSquareData import plot_square_data
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
 urllib.request.urlretrieve(URL, "student.zip")
@@ -30,11 +31,21 @@ X_test, y_test = split_xy(test_df, desiredfeatures, "G3")
 class Test_Square_Plot:
     def check_axs_equal(self, ax1, ax2):
         retval = True
-        if ax1.getGeometry() != ax2.getGeometry():
+        if ax1.shape != ax2.shape:
             return False
-        for i in range(ax1.getGeometry()[0]):
-            for j in range(ax1.getGeometry()[1]):
-                if ax1[i,j].title() != ax2[i,j].title():
+        for i in range(ax1.shape[0]):
+            for j in range(ax1.shape[1]):
+                #print("Chimera")
+                #print(ax1[i,j])
+                #print(ax2[i,j])
+                #print(ax1[i,j].title.get_text())
+                #print(dir(ax2[i,j].title))
+                #print(ax1[i,j].title == ax2[i,j].title)
+                #print(ax2[i,j].get_gridspec())
+                #print(ax1[i,j].get_gridspec())
+                #if ax1[i,j].get_text() != ax2[i,j].get_text():
+                #print(ax1[i,j].get_gridspec() != ax2[i,j].get_gridspec())
+                if ax1[i,j].title.get_text() != ax2[i,j].title.get_text() and ax1[i,j].get_gridspec() != ax2[i,j].get_gridspec():
                     return False
         return True
         
@@ -61,7 +72,7 @@ class Test_Square_Plot:
         
         
         print("testing whether a set of 5 plots plots correctly in size and title (plots have some room for placement case)" )
-        assert self.check_axs_equal(self, axs, test_axs)
+        assert self.check_axs_equal(axs, test_axs)
     
     def test_good_4items_complete(self):
         
@@ -77,14 +88,18 @@ class Test_Square_Plot:
         txt = "Figure 3 A series of histograms examining the distribution of categorical features"
         plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
 
+        plt.savefig('../CorrectA.png')
+
+        #print(X_train.shape())
+
         test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
         
         
-        
         print("testing whether a set of 4 plots plots correctly in size and title (every plot in perfect square)" )
-        assert self.check_axs_equal(self, axs, test_axs)
+        assert self.check_axs_equal(axs, test_axs)
         
+
     def test_bad_not_dataframes_1(self):
         
         print("testing wrong input on on initial dataframes (first)" )
@@ -94,7 +109,7 @@ class Test_Square_Plot:
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
             
-     def test_bad_not_dataframes_2(self):
+    def test_bad_not_dataframes_2(self):
         
         print("testing wrong input on on initial dataframes (second)" )
         with pytest.raises(TypeError) as e_info:
@@ -135,15 +150,15 @@ class Test_Square_Plot:
         
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    [], txt)
+                                    [], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    [1,2,3], txt)
+                                    [1,2,3], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
-                                    ["alpha"], txt)
+                                    ["alpha"], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
             
     def test_bad_not_txt_not_string(self):
@@ -161,6 +176,6 @@ class Test_Square_Plot:
         
         with pytest.raises(TypeError) as e_info:
             test_axs = plot_square_data(X_train, y_train, ["china", "Mjob", "Fjob", "romantic"], 
-                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
+                                    ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'desiredFeature is not in dependent dataframe'
             
