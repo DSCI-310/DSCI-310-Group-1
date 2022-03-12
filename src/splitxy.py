@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 import warnings as wa
 
-def split_xy(df, desiredfeatures, target):
+def splitxy(df, desiredfeatures, target):
     # Split data into target and desired features
     #
     # Takes in a dataframe and extracts the desired features used

@@ -1,1 +1,0 @@
-from splitxy import splitxy

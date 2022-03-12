@@ -6,18 +6,14 @@ from sklearn.model_selection import train_test_split
 from pandas.testing import assert_frame_equal, assert_series_equal
 import numpy as np
 
-import os
-path_parent = os.path.dirname(os.getcwd())
-os.chdir(path_parent)
-print(os.getcwd())
 import sys
-sys.path.append("./src")
-from splitxy import split_xy
+sys.path.append("..")
+from src import splitxy
 import warnings
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
-urllib.request.urlretrieve(URL, "student.zip")
-compressed_file = zipfile.ZipFile('student.zip')
+urllib.request.urlretrieve(URL, "data/raw/student.zip")
+compressed_file = zipfile.ZipFile('data/raw/student.zip')
 csv_file = compressed_file.open('student-mat.csv')
 df = pd.read_csv(csv_file,sep = ";")
 
@@ -32,8 +28,8 @@ class Test_splitxy:
     #and pytest warning documentation https://docs.pytest.org/en/6.2.x/warnings.html
     
     def test_desiredfeatures_list(self):
-        X_train, y_train = split_xy(train_df, desiredfeatures, "G3")
-        X_test, y_test = split_xy(test_df, desiredfeatures, "G3")
+        X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
+        X_test, y_test = splitxy.splitxy(test_df, desiredfeatures, "G3")
         
         X_train2 = train_df[desiredfeatures]
         X_test2 = test_df[desiredfeatures]
@@ -47,8 +43,8 @@ class Test_splitxy:
         X_test2 = test_df["G2"]
         
         print("testing whether passing in a list of desiredfeatures produces correct output" )
-        X_train, _= split_xy(train_df, "romantic", "G3")
-        X_test, _ = split_xy(test_df, "G2", "G3")
+        X_train, _= splitxy.splitxy(train_df, "romantic", "G3")
+        X_test, _ = splitxy.splitxy(test_df, "G2", "G3")
         assert_series_equal(X_train, X_train2)
         assert_series_equal(X_test, X_test2)
     
@@ -59,8 +55,8 @@ class Test_splitxy:
         y_test2 = test_df[samplefeatures]
         
         print("testing whether passing in a single produces correct output")
-        _, y_train= split_xy(train_df, "Mjob", samplefeatures)
-        _, y_test = split_xy(test_df, "Mjob", samplefeatures)
+        _, y_train= splitxy.splitxy(train_df, "Mjob", samplefeatures)
+        _, y_test = splitxy.splitxy(test_df, "Mjob", samplefeatures)
         assert_frame_equal(y_train, y_train2)
         assert_frame_equal(y_test, y_test2)
     
@@ -69,39 +65,39 @@ class Test_splitxy:
         y_test2 = test_df["G3"]
         
         print("testing whether passing in a single produces correct output")
-        _, y_train = split_xy(train_df, desiredfeatures, "G3")
-        _, y_test = split_xy(test_df, desiredfeatures, "G3")
+        _, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
+        _, y_test = splitxy.splitxy(test_df, desiredfeatures, "G3")
         assert_series_equal(y_train, y_train2)
         assert_series_equal(y_test, y_test2)
     
     def test_faultyvariable_in_list(self):
         print("make sure that we properly get an error when inputting desired/target feature we don't have within a list")
         with pytest.raises(KeyError):
-            X_train, y_train = split_xy(train_df, ["G2", "asodfiajsdofi"], "G3")
-            X_train, y_train = split_xy(train_df, "G3", ["G2", "asodfiajsdofi"])
+            X_train, y_train = splitxy.splitxy(train_df, ["G2", "asodfiajsdofi"], "G3")
+            X_train, y_train = splitxy.splitxy(train_df, "G3", ["G2", "asodfiajsdofi"])
     
     def test_faulty_single_variable(self):
         print("make sure that we properly get an error when inputting single desired/target feature we don't have")
         with pytest.raises(KeyError):
-            X_train, y_train = split_xy(train_df, desiredfeatures, "There_will_be_nothing_here")
-            X_train, y_train = split_xy(train_df, "There_will_be_nothing_here", desiredfeatures)
+            X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "There_will_be_nothing_here")
+            X_train, y_train = splitxy.splitxy(train_df, "There_will_be_nothing_here", desiredfeatures)
     
     def test_incorrect_inputtype(self):
         print("make sure that each of our inputs correctly throws a type error")
         print("throw type error when first input is not a df")
         print("throw type error when second or third input is not a list/str")
         with pytest.raises(TypeError):
-            X_train, y_train = split_xy(3, desiredfeatures, "G3")
-            X_train, y_train = split_xy(train_df, np.array([1, 2, 3, 4]), "G3")
-            X_train, y_train = split_xy(train_df, "G3", np.array([1, 2, 3, 4]))
+            X_train, y_train = splitxy.splitxy(3, desiredfeatures, "G3")
+            X_train, y_train = splitxy.splitxyy(train_df, np.array([1, 2, 3, 4]), "G3")
+            X_train, y_train = splitxy.splitxy(train_df, "G3", np.array([1, 2, 3, 4]))
     
     def test_common_features(self):
         print("make sure we dont have warning if we dont have a repeat feature")
-        X_train2, y_train= split_xy(train_df, "G3", "G2")
+        X_train2, y_train= splitxy.splitxy(train_df, "G3", "G2")
         with pytest.warns(UserWarning):
             print("make sure we do have warning if we have a repeat feature")
             samplefeatures = ["studytime", "Pstatus", "G3"]
-            X_train, y_train= split_xy(train_df, "G3", samplefeatures)
-            X_train2, y_train= split_xy(train_df, "G3", "G3")
-            X_test, y_test = split_xy(test_df, samplefeatures, "G3")
+            X_train, y_train= splitxy.splitxy(train_df, "G3", samplefeatures)
+            X_train2, y_train= splitxy.splitxy(train_df, "G3", "G3")
+            X_test, y_test = splitxy.splitxy(test_df, samplefeatures, "G3")
             
