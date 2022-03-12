@@ -7,7 +7,6 @@ from sklearn.pipeline import Pipeline, make_pipeline
 from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
-import unittest
 
 import sys
 sys.path.append("..")
