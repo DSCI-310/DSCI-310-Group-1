@@ -29,19 +29,41 @@ We test the model with cross validation and get an average cv-score of -4.61, wh
 
 ## How to run?
 
-### From DockerHub
+In this section, we will provide a step-by-step checklist to run our project. You can either run our project from DockerHub (recommended), or clone the repository and build locally. 
 
-Our project is published at Dockerhub. Thus, it is convenient to run our repository directly in the terminal. Execute the following command:
+We provided the commands required to run our project, and you can copy-paste the commands line-by-line in the terminal. If our instruction does not work out for you, please let us help you by posting on the [issue board](https://github.com/DSCI-310/DSCI-310-Group-1/issues).
+
+#### Install Docker
+
+Docker is required for this project to run properly. Use this [link](https://docs.docker.com/get-docker/) to download and install Docker for your system. Alter installation, run the following code in terminal to make sure Docker is running properly. 
 
 ```
-docker pull danielhou13/dsci-310-project:latest
+docker run hello-world
+```
+
+### From DockerHub
+
+Our project is published at Dockerhub. Hence, we would recommend running our repository directly in the terminal through `docker` commands. 
+
+The stable version `v0.9.0` includes most of our tested features. 
+
+```
+docker pull danielhou13/dsci-310-project:v0.9.0
+
+docker run -it danielhou13/dsci-310-project
+```
+
+If you wish to explore the past versions or new releases, please refer to our [releases page](https://github.com/DSCI-310/DSCI-310-Group-1/releases), and manually specify the desired version or tag.
+
+```
+docker pull danielhou13/dsci-310-project:<VERSION>
 
 docker run -it danielhou13/dsci-310-project
 ```
 
 ### Clone the repository
 
-If the first method does not work out, you can also clone the repository, and build the Docker image locally.
+An alternative approach is to clone our repository with `git` command, and build the Docker image locally.
 
 ```
 git clone https://github.com/DSCI-310/DSCI-310-Group-1
@@ -50,6 +72,7 @@ docker build --tag dsci-310-project DSCI-310-Group-1
 
 docker run -it dsci-310-project
 ```
+
 
 
 ## Dependencies
