@@ -1,3 +1,7 @@
+import numpy as np
+import matplotlib.pyplot as plt
+import warnings as wa
+
 # make_scatterplot
 #
 # draw a scatterplot using matplotlib.pyplot with regression line using desired configurations
@@ -24,6 +28,8 @@ def make_scatterplot(x, y, alpha_level=1, labels={}):
         raise TypeError("Incorrect type for label configuration")
     if not (isinstance(alpha_level, int) or isinstance(alpha_level, float)):
         raise TypeError("Incorrect alpha level configuration")
+    if alpha_level > 1 or alpha_level < 0:
+        raise ValueError("Alpha level should between 0 and 1")
 
     if (alpha_level is not None):
         plt.scatter(x, y, alpha=alpha_level)
