@@ -8,8 +8,6 @@ from sklearn.impute import SimpleImputer
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 
-import sys
-sys.path.append("..")
 from src import listfun
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
