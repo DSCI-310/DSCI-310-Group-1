@@ -20,14 +20,6 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
     # plot_square_data(X_train, y_train, ["feature1", "feature2", "feature3"], ["title1", "title2", "title3], "This is Plot 1")
     # plot_square_data(dependent, independednts, ["income"], ["retirement_age"], "Income and Retirement Age Relation")
     
-    #print("X Table")
-    #print(x_df)
-    #print(isinstance(x_df, pd.DataFrame))
-    #print(x_df.shape[0])
-    #print("Y Table")
-    #print(y_df)
-    #print(isinstance(y_df, pd.Series))
-    #print(y_df.shape[0])
 
     if isinstance(x_df, pd.DataFrame) and isinstance(y_df, pd.Series) and x_df.shape[0] == y_df.shape[0]:
         if isinstance(desiredFeatures, list) and len(desiredFeatures) > 0 and isinstance(desiredFeatures[0], str):
