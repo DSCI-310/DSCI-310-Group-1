@@ -36,9 +36,8 @@ preprocessor.fit_transform(X_train,y_train)
 print(preprocessor)
 
 class Test_listfun:
-    def test_listfun(self):
+    def test_listfun1(self):
         testout1 = listfun.list_abs(preprocessor, "pipeline-2", "onehotencoder", categorical_features)
-        testout2 = listfun.list_abs(preprocessor, "pipeline-3", "onehotencoder", binary_features)
         expectout1 = ['Mjob_at_home',
                      'Mjob_health',
                      'Mjob_other',
@@ -49,9 +48,26 @@ class Test_listfun:
                      'Fjob_other',
                      'Fjob_services',
                      'Fjob_teacher']
-        expectout2 = ['Pstatus_T', 'romantic_yes']
+        
         print("Testing if testout1 is the same as expected")
         assert testout1 == expectout1
+        
+        
+    def test_listfun2(self):
+        testout2 = listfun.list_abs(preprocessor, "pipeline-3", "onehotencoder", binary_features)
+        expectout2 = ['Pstatus_T', 'romantic_yes']
         print("Testing if testout1 is the same as expected")
         assert testout2 == expectout2
-        print("All tests passed for listfuntests")
+        
+    def test_incorrect_param1(self):
+        with pytest.raises(TypeError):
+            testout = listfun.list_abs(preprocessor, 1, "onehotencoder", binary_features)
+            
+            
+    def test_incorrect_param2(self):
+        with pytest.raises(TypeError):
+            testout = listfun.list_abs(preprocessor, "string", 1, binary_features)
+            
+    def test_incorrect_param3(self):
+        with pytest.raises(TypeError):
+            testout = listfun.list_abs(preprocessor, "string", 1, "string")
