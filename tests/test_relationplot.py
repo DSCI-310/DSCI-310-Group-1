@@ -7,24 +7,22 @@ from pandas.testing import assert_frame_equal, assert_series_equal
 import numpy as np
 import matplotlib.pyplot as plt
 
-import sys
-sys.path.append("..")
-from src import splitxy.splitxy as split_xy
-from src import plotSquareData.plot_square_data as plot_square_data
+from src import splitxy
+from src import plotSquareData
 import warnings
 
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
-urllib.request.urlretrieve(URL, "student.zip")
-compressed_file = zipfile.ZipFile('student.zip')
+urllib.request.urlretrieve(URL, "data/raw/student.zip")
+compressed_file = zipfile.ZipFile('data/raw/student.zip')
 csv_file = compressed_file.open('student-mat.csv')
 df = pd.read_csv(csv_file,sep = ";")
 
 train_df, test_df = train_test_split(df, test_size = 0.2, random_state=100)
 #make training and testing split
 desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
-X_train, y_train = split_xy(train_df, desiredfeatures, "G3")
-X_test, y_test = split_xy(test_df, desiredfeatures, "G3")
+X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
+X_test, y_test = splitxy.splitxy(test_df, desiredfeatures, "G3")
 
 class Test_Square_Plot:
     def check_axs_equal(self, ax1, ax2):
@@ -53,7 +51,7 @@ class Test_Square_Plot:
         txt = "Figure 2 A series of plots examining the numeric features compared to predicted grade"
         plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
 
-        test_axs = plot_square_data(X_train, y_train, ["studytime", "Medu", "Fedu", "goout", "traveltime"], 
+        test_axs = plotSquareData.plot_square_data(X_train, y_train, ["studytime", "Medu", "Fedu", "goout", "traveltime"], 
                                     ["study time vs grade", "Mother education vs grade", "Father education vs grade", 
                                      "time spent with friends vs grade", "travel time vs grade"], txt)
         
@@ -78,7 +76,7 @@ class Test_Square_Plot:
 
         #plt.savefig('../CorrectA.png')
 
-        test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+        test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
         
         
@@ -91,7 +89,7 @@ class Test_Square_Plot:
         print("testing wrong input on on initial dataframes (first)" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, "hello", ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, "hello", ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
             
@@ -99,7 +97,7 @@ class Test_Square_Plot:
         
         print("testing wrong input on on initial dataframes (second)" )
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data("hello", y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data("hello", y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
             
@@ -108,7 +106,7 @@ class Test_Square_Plot:
         print("testing that dataframes dont work when not same length" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, pd.DataFrame(), ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, pd.DataFrame(), ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'The first two arguments are not dataframes of equal length'
             
@@ -118,15 +116,15 @@ class Test_Square_Plot:
         print("testing that desired inputs is appropriate list" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, [], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, [], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, [1,2,3], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, [1,2,3], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'desiredFeatures is not a list of strings length at least 1'
             
@@ -135,15 +133,15 @@ class Test_Square_Plot:
         print("testing that desired titles is appropriate list" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     [], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     [1,2,3], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["alpha"], "Sample")
             assert str(exc_info.value) == 'titles is not a list of strings of length equal to desiredFeatures'
             
@@ -152,7 +150,7 @@ class Test_Square_Plot:
         print("testing that last argument crashes on incorrect input" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], 123)
             assert str(exc_info.value) == 'The last argument is not a string'
             
@@ -161,7 +159,7 @@ class Test_Square_Plot:
         print("testing for invalid column names as desiredFeature" )
         
         with pytest.raises(TypeError) as e_info:
-            test_axs = plot_square_data(X_train, y_train, ["china", "Mjob", "Fjob", "romantic"], 
+            test_axs = plotSquareData.plot_square_data(X_train, y_train, ["china", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], "Sample")
             assert str(exc_info.value) == 'desiredFeature is not in dependent dataframe'
-            
+

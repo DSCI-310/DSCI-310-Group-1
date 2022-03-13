@@ -6,8 +6,6 @@ from sklearn.model_selection import train_test_split
 from pandas.testing import assert_frame_equal, assert_series_equal
 import numpy as np
 
-import sys
-sys.path.append("..")
 from src import splitxy
 import warnings
 

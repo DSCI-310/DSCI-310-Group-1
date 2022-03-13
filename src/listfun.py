@@ -1,12 +1,16 @@
-# This is the abstract function for list, used in Results part of the notebook
-# @param pre is the preprocessor we're working w ith
-# @param transformers is the name of the transformers for pre
-# @param steps is the steps name for pre
-# @param features is the category of features we're focusing on
-
 def list_abs(pre, transformers, steps, features):
+    # This is the abstract function for list, used in Results part of the notebook
+    # @param pre is the preprocessor we're working w ith
+    # @param transformers is the name of the transformers for pre
+    # @param steps is the steps name for pre
+    # @param features is the category of features we're focusing on
+    #
+    # @return a list containing all the features listed under the category (passed in as input "features")
+    #
+    # @examples
+    # list_abs(preprocessor, "pipeline-2", "onehotencoder", categorical_features)
     
-    #See if transformersna and steps are Strings
+    #See if transformers and steps are Strings
     if (not isinstance(transformers, str)) or (not isinstance(steps, str)):
         raise TypeError("Transformers and Steps need to be strings")
         
