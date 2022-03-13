@@ -7,14 +7,12 @@ from pandas.testing import assert_frame_equal, assert_series_equal
 import numpy as np
 import matplotlib.pyplot as plt
 
-import os
-path_parent = os.path.dirname(os.getcwd())
-os.chdir(path_parent)
-print(os.getcwd())
 import sys
-sys.path.append("./src")
-from splitxy import split_xy
-from plotSquareData import plot_square_data
+sys.path.append("..")
+from src import splitxy.splitxy as split_xy
+from src import plotSquareData.plot_square_data as plot_square_data
+import warnings
+
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
 urllib.request.urlretrieve(URL, "student.zip")
@@ -35,16 +33,6 @@ class Test_Square_Plot:
             return False
         for i in range(ax1.shape[0]):
             for j in range(ax1.shape[1]):
-                #print("Chimera")
-                #print(ax1[i,j])
-                #print(ax2[i,j])
-                #print(ax1[i,j].title.get_text())
-                #print(dir(ax2[i,j].title))
-                #print(ax1[i,j].title == ax2[i,j].title)
-                #print(ax2[i,j].get_gridspec())
-                #print(ax1[i,j].get_gridspec())
-                #if ax1[i,j].get_text() != ax2[i,j].get_text():
-                #print(ax1[i,j].get_gridspec() != ax2[i,j].get_gridspec())
                 if ax1[i,j].title.get_text() != ax2[i,j].title.get_text() and ax1[i,j].get_gridspec() != ax2[i,j].get_gridspec():
                     return False
         return True
@@ -88,9 +76,7 @@ class Test_Square_Plot:
         txt = "Figure 3 A series of histograms examining the distribution of categorical features"
         plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
 
-        plt.savefig('../CorrectA.png')
-
-        #print(X_train.shape())
+        #plt.savefig('../CorrectA.png')
 
         test_axs = plot_square_data(X_train, y_train, ["Pstatus", "Mjob", "Fjob", "romantic"], 
                                     ["P status vs grade", "Mother job vs grade", "Father Job vs grade", "Relationship status vs grade"], txt)
