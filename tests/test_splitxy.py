@@ -100,4 +100,4 @@ class Test_splitxy:
             X_train, y_train= splitxy.splitxy(train_df, "G3", samplefeatures)
             X_train2, y_train= splitxy.splitxy(train_df, "G3", "G3")
             X_test, y_test = splitxy.splitxy(test_df, samplefeatures, "G3")
-            
+

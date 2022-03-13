@@ -1,7 +1,3 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import warnings as wa
-
 # make_scatterplot
 #
 # draw a scatterplot using matplotlib.pyplot with regression line using desired configurations
@@ -21,12 +17,12 @@ import warnings as wa
 # @examples
 # make_scatterplot(x_train, y_train)
 # make_scatterplot(x_train, y_train, 0.5, {"xlabel": "x label", "title": "the title"})
-def make_scatterplot(x, y, alpha_level=None, labels=None):
+def make_scatterplot(x, y, alpha_level=1, labels={}):
     if not (isinstance(x, np.ndarray) and isinstance(y, np.ndarray)):
-        wa.warn("Input variables for scatterplot are not array-like objects", UserWarning)
-    if (not isinstance(labels, dict)) or not (labels is None):
+        wa.warn("Input variables for scatterplot are possibly not array-like objects", UserWarning)
+    if not isinstance(labels, dict):
         raise TypeError("Incorrect type for label configuration")
-    if (not (isinstance(alpha_level, int) or isinstance(alpha_level, float))) or not alpha_level is None:
+    if not (isinstance(alpha_level, int) or isinstance(alpha_level, float)):
         raise TypeError("Incorrect alpha level configuration")
 
     if (alpha_level is not None):
@@ -47,5 +43,5 @@ def make_scatterplot(x, y, alpha_level=None, labels=None):
             if key == "figtext":
                 plt.figtext(0.5, -0.05, value, wrap=True, horizontalalignment='center', fontsize=12)
 
-        grid = np.linspace(y_train.min(), y_train.max(), 1000)
+        grid = np.linspace(min(y), max(y), 1000)
         plt.plot(grid, grid, "--k")
