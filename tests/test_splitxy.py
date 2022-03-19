@@ -10,8 +10,8 @@ from src import splitxy
 import warnings
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
-urllib.request.urlretrieve(URL, "data/raw/student.zip")
-compressed_file = zipfile.ZipFile('data/raw/student.zip')
+location, _ = urllib.request.urlretrieve(URL)
+compressed_file = zipfile.ZipFile(location)
 csv_file = compressed_file.open('student-mat.csv')
 df = pd.read_csv(csv_file,sep = ";")
 

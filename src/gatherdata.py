@@ -28,7 +28,7 @@ def downloadwebdata(url, location):
     compressed_file = zipfile.ZipFile(temp)
     csv_file = compressed_file.open('student-mat.csv')
     df = pd.read_csv(csv_file,sep = ";")
-    df.to_csv(location)
+    df.to_csv(location, sep = ";")
     
     
 if __name__ == '__main__':

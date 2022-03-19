@@ -11,11 +11,11 @@ from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder, StandardScaler
 from src import listfun
 
 URL = 'https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip'
-urllib.request.urlretrieve(URL, "data/raw/student.zip")
-compressed_file = zipfile.ZipFile('data/raw/student.zip')
+location, _ = urllib.request.urlretrieve(URL)
+compressed_file = zipfile.ZipFile(location)
 csv_file = compressed_file.open('student-mat.csv')
-
 df = pd.read_csv(csv_file,sep = ";")
+
 numeric_features = ["studytime", "Medu", "Fedu", "goout", "traveltime"]
 categorical_features = ["Mjob", "Fjob"]
 binary_features = ["Pstatus", "romantic"]

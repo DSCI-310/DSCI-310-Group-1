@@ -15,6 +15,7 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
     # @param txt the text to display as a string over the plot
     #
     # @return axy for testing purposes on the features of the plot
+    # @return fig which is a copy of the plot able to be used in other functions
     #
     # @examples
     # plot_square_data(X_train, y_train, ["feature1", "feature2", "feature3"], ["title1", "title2", "title3], "This is Plot 1")
@@ -54,10 +55,11 @@ def plot_square_data(x_df, y_df, desiredFeatures, titles, txt):
                     raise TypeError("desiredFeature is not in dependent dataframe")
 
 
-                plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
-
+                # plt.figtext(0.5, 0.05, txt, wrap=True, horizontalalignment='center', fontsize=12)
+                fig1 = plt.gcf()
                 plt.show()
-                return axs
+                
+                return axs,fig1
             else:
                 raise TypeError("titles is not a list of strings of length equal to desiredFeatures")
         else:
