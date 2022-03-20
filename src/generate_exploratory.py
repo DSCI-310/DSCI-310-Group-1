@@ -28,7 +28,7 @@ def generator(path, location):
       os.makedirs(location)
     
     desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
-    train_df = pd.read_csv("data/student-mat-train.csv",sep = ";")
+    train_df = pd.read_csv(path,sep = ";")
     X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
 
     describer = X_train.describe(include="all")
