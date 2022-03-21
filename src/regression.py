@@ -50,14 +50,13 @@ def main(inloc, location):
     )
     
     #make cross validation model
-    cvmodel = preprocessing(preprocessor)
+    cvmodel = makemodel(preprocessor)
     
     #do crossvalidation and get back the dataframe of results
-    crossval,df = performcrossval(cvmodel,  X_train, y_train)
-    df.to_csv(os.path.join(location, "cvtable.csv"), sep = ";")
+    crossval,df = performcrossval(cvmodel,  X_train, y_train, location)
     
     #perform analysis
-    finalmodel = preprocessing(preprocessor, crossval.best_params_['ridge__alpha'],)
+    finalmodel = makemodel(preprocessor, crossval.best_params_['ridge__alpha'],)
     predictions, finalscore = performtesting(finalmodel, X_train, y_train, X_test, y_test)
     
     #make results plot
@@ -66,20 +65,27 @@ def main(inloc, location):
     #make coefficient table
     coefftable(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel)
     
+
     #make results table
+    df = df[df.rank_test_score == df.rank_test_score.min()].drop(["mean_score_time",
+                                                             "std_score_time",
+                                                             "split0_test_score",
+                                                             "split1_test_score",
+                                                             "split2_test_score",
+                                                             "split3_test_score",
+                                                             "split4_test_score"], axis=1)
     df["final score"] = -finalscore
     df.to_csv(os.path.join(location, "finaltable.csv"), sep = ";")
     
     print("done")
     
     
-
-def preprocessing(preprocessor, alpha=1.0):
+def makemodel(preprocessor, alpha=1.0):
     pipelr = make_pipeline(preprocessor, Ridge(alpha, random_state=123))
     
     return pipelr
 
-def performcrossval(pipeline, X_train, y_train):
+def performcrossval(pipeline, X_train, y_train, location):
     hyperparams = np.exp(np.random.uniform(-3, 3, 10))
 
     param_dist = {"ridge__alpha": hyperparams}
@@ -87,16 +93,16 @@ def performcrossval(pipeline, X_train, y_train):
     rand_search = RandomizedSearchCV(pipeline, param_dist, n_jobs = -1, scoring = "neg_root_mean_squared_error")
     rand_search.fit(X_train, y_train)
     
-    df = pd.DataFrame(rand_search.cv_results_)
-    df = df[df.rank_test_score == df.rank_test_score.min()].drop(["mean_score_time",
-                                                                 "std_score_time",
-                                                                 "split0_test_score",
-                                                                 "split1_test_score",
-                                                                 "split2_test_score",
-                                                                 "split3_test_score",
-                                                                 "split4_test_score"], axis=1)
-    
-    return rand_search, df
+    df_results = pd.DataFrame(rand_search.cv_results_)
+    df_results2 = df_results[df_results.rank_test_score < 5].drop(["mean_score_time",
+                                                             "std_score_time",
+                                                             "split0_test_score",
+                                                             "split1_test_score",
+                                                             "split2_test_score",
+                                                             "split3_test_score",
+                                                             "split4_test_score"], axis=1)
+    df_results2.to_csv(os.path.join(location, "cvtable.csv"), sep = ";")
+    return rand_search, df_results
 
 def performtesting(model, X_train, y_train, X_test, y_test):
     model.fit(X_train, y_train)
