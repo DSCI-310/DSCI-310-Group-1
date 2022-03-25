@@ -20,8 +20,8 @@ def downloadwebdata(url, location):
     urllib.request.urlretrieve(URL, "../data/raw/student.zip")
     compressed_file = zipfile.ZipFile('../data/raw/student.zip')
     csv_file = compressed_file.open('student-mat.csv')
-    
+
 
 def main():
     downloadwebdata(url, location)
-    
+
