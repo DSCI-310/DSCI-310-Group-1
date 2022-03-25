@@ -1,0 +1,1239 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Predicting Final Grade &#8212; Predicting Final Grade</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet">
+  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">Predicting Final Grade</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="intro.html">
+   Introduction
+  </a>
+ </li>
+</ul>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Predicting Final Grade
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/StudentPerformance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/StudentPerformance.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citations">
+   Citations
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Predicting Final Grade</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exploratory-data-analysis">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#methods">
+   Methods
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#results">
+   Results
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#discussion">
+   Discussion:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#citations">
+   Citations
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="predicting-final-grade">
+<h1>Predicting Final Grade<a class="headerlink" href="#predicting-final-grade" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;..&#39;</span><span class="p">),</span>
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">splitxy</span>
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">listfun</span>
+<span class="kn">from</span> <span class="nn">src</span> <span class="kn">import</span> <span class="n">plotSquareData</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.compose</span> <span class="kn">import</span> <span class="n">make_column_transformer</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span><span class="p">,</span> <span class="n">Ridge</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">cross_validate</span><span class="p">,</span>
+    <span class="n">train_test_split</span><span class="p">,</span>
+    <span class="n">RandomizedSearchCV</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span><span class="p">,</span> <span class="n">make_pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">OneHotEncoder</span><span class="p">,</span> <span class="n">OrdinalEncoder</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span>
+<span class="kn">import</span> <span class="nn">urllib.request</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Education remains one of the most vital and fundamental resources in the world. There is an active body of research that works to explore the relation between education and other societal factors such as economic growth where current research suggests that better education lends itself to better economic growth, and perhaps more importantly for individuals, a higher individual income (Roser &amp; Ortiz-Ospina, 2016).</p>
+<p>There are many other reasons why people may care about their grade besides raw income. A student may want to get into a prestigious university where the entrance requirement is very high (of course, the underlying motivation could be income, but the current motivation is a top university). Alternatively, it may be as simple as getting the satisfaction of seeing a high mark on your report card. Being able to accurately predict your grade allows you to plan in advance to determine if you need extra assistance in a particular subject, or if you are currently on track to meet or exceed the grade you desire. Unfortunately, this is not an easy task. There are many potential factors that can affect your performance, and given that each student has their own unique circumstances, this makes the task of predicting monumental. On the other hand, there are also many features that are common among students, and helps serve as a common ground in being able to predict your final grade.</p>
+<p>For this project, we’re conducting a multi-variable regression analysis on the <em>Student Performance</em> dataset. The original dataset, which was recorded on the UCI ML Repo (see citation), was split into two individual datasets, respectively with students’ final grades in Portuguese and Math. For this project, we’re only focusing on the Math dataset. First used in 2008 by Cortez and Silva, this dataset was collected for use in decision trees, neural networks, SVMs and Random Forest. The dataset has an very large number of potentially useful features. There are 30 features and 3 outputs; however, for the purposes of this analysis, we will only focus on 9 features with varying levels of intuitive correlation with the final end of year grade G3, mostly consisting of social factors. For instance, the feature “study time”, at a glance, seems like there will be a positive correlation with final grade while the feature “romantic” is not as straightforward to tell.</p>
+<p>The dataset we will be using contains the following features (the type of feature is given by the UCI ML Repo):</p>
+<ul class="simple">
+<li><p>study time: The number of hours spend studying per week. It is a numeric feature where each number is associated with a range of hours spent studying (numeric: 1 - &lt;2 hours, 2 - 2 to 5 hours, 3 - 5 to 10 hours, or 4 - &gt;10 hours).</p></li>
+<li><p>Pstatus: Whether the parents of the student are currently living together or seperated (Binary feature: T = living together, A = apart)</p></li>
+<li><p>Medu: Numeric representations of the mother’s education level  (numeric: 0 - none, 1 - primary education (4th grade), 2 - 5th to 9th grade, 3 - secondary education or 4 - higher education)</p></li>
+<li><p>Fedu: Numeric representations of the father’s education level  (numeric: 0 - none, 1 - primary education (4th grade), 2 - 5th to 9th grade, 3 - secondary education or 4 - higher education)</p></li>
+<li><p>Mjob: The mother’s job (Categorical: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</p></li>
+<li><p>Fjob: The father’s job (Categorical: ‘teacher’, ‘health’ care related, civil ‘services’ (e.g. administrative or police), ‘at_home’ or ‘other’)</p></li>
+<li><p>goout: A representation of how often the student goes out with friends (numeric: from 1 - very low to 5 - very high)</p></li>
+<li><p>travel time: how long it takes to get to school (numeric: 1 - &lt;15 min., 2 - 15 to 30 min., 3 - 30 min. to 1 hour, or 4 - &gt;1 hour)</p></li>
+<li><p>romantic: Whether or not the student is in a romantic relationship (Binary: yes and no)</p></li>
+<li><p>G3: The final grade of the student at the end of the year represented by a 0-20 scale (numeric: from 0-20 where 0 represents 0-5% and 20 represents 95-100%)</p></li>
+</ul>
+<p>Thus, we are interested in looking to answer the following question: <strong>Can we predict a student’s final grade (denoted by “G3” in the dataset) given the above features</strong>.</p>
+</div>
+<div class="section" id="exploratory-data-analysis">
+<h2>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#inspiration for learning how to download from web taken from https://stackoverflow.com/questions/41218216/using-pandas-to-download-load-zipped-csv-file-from-url</span>
+<span class="n">URL</span> <span class="o">=</span> <span class="s1">&#39;https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip&#39;</span>
+<span class="n">location</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">urllib</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">URL</span><span class="p">)</span>
+<span class="n">compressed_file</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+<span class="n">csv_file</span> <span class="o">=</span> <span class="n">compressed_file</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;student-mat.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csv_file</span><span class="p">,</span><span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>school</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>address</th>
+      <th>famsize</th>
+      <th>Pstatus</th>
+      <th>Medu</th>
+      <th>Fedu</th>
+      <th>Mjob</th>
+      <th>Fjob</th>
+      <th>reason</th>
+      <th>guardian</th>
+      <th>traveltime</th>
+      <th>studytime</th>
+      <th>failures</th>
+      <th>schoolsup</th>
+      <th>famsup</th>
+      <th>paid</th>
+      <th>activities</th>
+      <th>nursery</th>
+      <th>higher</th>
+      <th>internet</th>
+      <th>romantic</th>
+      <th>famrel</th>
+      <th>freetime</th>
+      <th>goout</th>
+      <th>Dalc</th>
+      <th>Walc</th>
+      <th>health</th>
+      <th>absences</th>
+      <th>G1</th>
+      <th>G2</th>
+      <th>G3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>GP</td>
+      <td>F</td>
+      <td>18</td>
+      <td>U</td>
+      <td>GT3</td>
+      <td>A</td>
+      <td>4</td>
+      <td>4</td>
+      <td>at_home</td>
+      <td>teacher</td>
+      <td>course</td>
+      <td>mother</td>
+      <td>2</td>
+      <td>2</td>
+      <td>0</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>4</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>6</td>
+      <td>5</td>
+      <td>6</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>GP</td>
+      <td>F</td>
+      <td>17</td>
+      <td>U</td>
+      <td>GT3</td>
+      <td>T</td>
+      <td>1</td>
+      <td>1</td>
+      <td>at_home</td>
+      <td>other</td>
+      <td>course</td>
+      <td>father</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>5</td>
+      <td>3</td>
+      <td>3</td>
+      <td>1</td>
+      <td>1</td>
+      <td>3</td>
+      <td>4</td>
+      <td>5</td>
+      <td>5</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>GP</td>
+      <td>F</td>
+      <td>15</td>
+      <td>U</td>
+      <td>LE3</td>
+      <td>T</td>
+      <td>1</td>
+      <td>1</td>
+      <td>at_home</td>
+      <td>other</td>
+      <td>other</td>
+      <td>mother</td>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>3</td>
+      <td>3</td>
+      <td>10</td>
+      <td>7</td>
+      <td>8</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>GP</td>
+      <td>F</td>
+      <td>15</td>
+      <td>U</td>
+      <td>GT3</td>
+      <td>T</td>
+      <td>4</td>
+      <td>2</td>
+      <td>health</td>
+      <td>services</td>
+      <td>home</td>
+      <td>mother</td>
+      <td>1</td>
+      <td>3</td>
+      <td>0</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>3</td>
+      <td>2</td>
+      <td>2</td>
+      <td>1</td>
+      <td>1</td>
+      <td>5</td>
+      <td>2</td>
+      <td>15</td>
+      <td>14</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>GP</td>
+      <td>F</td>
+      <td>16</td>
+      <td>U</td>
+      <td>GT3</td>
+      <td>T</td>
+      <td>3</td>
+      <td>3</td>
+      <td>other</td>
+      <td>other</td>
+      <td>home</td>
+      <td>father</td>
+      <td>1</td>
+      <td>2</td>
+      <td>0</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>yes</td>
+      <td>yes</td>
+      <td>no</td>
+      <td>no</td>
+      <td>4</td>
+      <td>3</td>
+      <td>2</td>
+      <td>1</td>
+      <td>2</td>
+      <td>5</td>
+      <td>4</td>
+      <td>6</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#save a copy of the dataframe </span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../data/raw/student-mat.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">train_df</span><span class="p">,</span> <span class="n">test_df</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="c1">#make training and testing split</span>
+<span class="n">desiredfeatures</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;Pstatus&quot;</span><span class="p">,</span> <span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;Mjob&quot;</span><span class="p">,</span> <span class="s2">&quot;Fjob&quot;</span><span class="p">,</span> <span class="s2">&quot;goout&quot;</span><span class="p">,</span><span class="s2">&quot;romantic&quot;</span><span class="p">,</span><span class="s2">&quot;traveltime&quot;</span><span class="p">]</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span> <span class="o">=</span> <span class="n">splitxy</span><span class="o">.</span><span class="n">splitxy</span><span class="p">(</span><span class="n">train_df</span><span class="p">,</span> <span class="n">desiredfeatures</span><span class="p">,</span> <span class="s2">&quot;G3&quot;</span><span class="p">)</span>
+<span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">splitxy</span><span class="o">.</span><span class="n">splitxy</span><span class="p">(</span><span class="n">test_df</span><span class="p">,</span> <span class="n">desiredfeatures</span><span class="p">,</span> <span class="s2">&quot;G3&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We decided on a train test split of 80% training and 20% testing. This was because the number of samples in the dataset where moderately low (396) so we wanted more samples to train on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">describer</span> <span class="o">=</span> <span class="n">X_train</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s2">&quot;all&quot;</span><span class="p">)</span>
+<span class="n">describer</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;Figure 1.0. A table desplaying the most common values of each categorical variable along side percentiles of numerical variables&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+</style>
+<table id="T_32100_">
+  <caption>Figure 1.0. A table desplaying the most common values of each categorical variable along side percentiles of numerical variables</caption>
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th class="col_heading level0 col0" >studytime</th>
+      <th class="col_heading level0 col1" >Pstatus</th>
+      <th class="col_heading level0 col2" >Medu</th>
+      <th class="col_heading level0 col3" >Fedu</th>
+      <th class="col_heading level0 col4" >Mjob</th>
+      <th class="col_heading level0 col5" >Fjob</th>
+      <th class="col_heading level0 col6" >goout</th>
+      <th class="col_heading level0 col7" >romantic</th>
+      <th class="col_heading level0 col8" >traveltime</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_32100_level0_row0" class="row_heading level0 row0" >count</th>
+      <td id="T_32100_row0_col0" class="data row0 col0" >316.000000</td>
+      <td id="T_32100_row0_col1" class="data row0 col1" >316</td>
+      <td id="T_32100_row0_col2" class="data row0 col2" >316.000000</td>
+      <td id="T_32100_row0_col3" class="data row0 col3" >316.000000</td>
+      <td id="T_32100_row0_col4" class="data row0 col4" >316</td>
+      <td id="T_32100_row0_col5" class="data row0 col5" >316</td>
+      <td id="T_32100_row0_col6" class="data row0 col6" >316.000000</td>
+      <td id="T_32100_row0_col7" class="data row0 col7" >316</td>
+      <td id="T_32100_row0_col8" class="data row0 col8" >316.000000</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row1" class="row_heading level0 row1" >unique</th>
+      <td id="T_32100_row1_col0" class="data row1 col0" >nan</td>
+      <td id="T_32100_row1_col1" class="data row1 col1" >2</td>
+      <td id="T_32100_row1_col2" class="data row1 col2" >nan</td>
+      <td id="T_32100_row1_col3" class="data row1 col3" >nan</td>
+      <td id="T_32100_row1_col4" class="data row1 col4" >5</td>
+      <td id="T_32100_row1_col5" class="data row1 col5" >5</td>
+      <td id="T_32100_row1_col6" class="data row1 col6" >nan</td>
+      <td id="T_32100_row1_col7" class="data row1 col7" >2</td>
+      <td id="T_32100_row1_col8" class="data row1 col8" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row2" class="row_heading level0 row2" >top</th>
+      <td id="T_32100_row2_col0" class="data row2 col0" >nan</td>
+      <td id="T_32100_row2_col1" class="data row2 col1" >T</td>
+      <td id="T_32100_row2_col2" class="data row2 col2" >nan</td>
+      <td id="T_32100_row2_col3" class="data row2 col3" >nan</td>
+      <td id="T_32100_row2_col4" class="data row2 col4" >other</td>
+      <td id="T_32100_row2_col5" class="data row2 col5" >other</td>
+      <td id="T_32100_row2_col6" class="data row2 col6" >nan</td>
+      <td id="T_32100_row2_col7" class="data row2 col7" >no</td>
+      <td id="T_32100_row2_col8" class="data row2 col8" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row3" class="row_heading level0 row3" >freq</th>
+      <td id="T_32100_row3_col0" class="data row3 col0" >nan</td>
+      <td id="T_32100_row3_col1" class="data row3 col1" >290</td>
+      <td id="T_32100_row3_col2" class="data row3 col2" >nan</td>
+      <td id="T_32100_row3_col3" class="data row3 col3" >nan</td>
+      <td id="T_32100_row3_col4" class="data row3 col4" >115</td>
+      <td id="T_32100_row3_col5" class="data row3 col5" >174</td>
+      <td id="T_32100_row3_col6" class="data row3 col6" >nan</td>
+      <td id="T_32100_row3_col7" class="data row3 col7" >209</td>
+      <td id="T_32100_row3_col8" class="data row3 col8" >nan</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row4" class="row_heading level0 row4" >mean</th>
+      <td id="T_32100_row4_col0" class="data row4 col0" >2.047468</td>
+      <td id="T_32100_row4_col1" class="data row4 col1" >nan</td>
+      <td id="T_32100_row4_col2" class="data row4 col2" >2.797468</td>
+      <td id="T_32100_row4_col3" class="data row4 col3" >2.547468</td>
+      <td id="T_32100_row4_col4" class="data row4 col4" >nan</td>
+      <td id="T_32100_row4_col5" class="data row4 col5" >nan</td>
+      <td id="T_32100_row4_col6" class="data row4 col6" >3.120253</td>
+      <td id="T_32100_row4_col7" class="data row4 col7" >nan</td>
+      <td id="T_32100_row4_col8" class="data row4 col8" >1.436709</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row5" class="row_heading level0 row5" >std</th>
+      <td id="T_32100_row5_col0" class="data row5 col0" >0.843816</td>
+      <td id="T_32100_row5_col1" class="data row5 col1" >nan</td>
+      <td id="T_32100_row5_col2" class="data row5 col2" >1.067616</td>
+      <td id="T_32100_row5_col3" class="data row5 col3" >1.090053</td>
+      <td id="T_32100_row5_col4" class="data row5 col4" >nan</td>
+      <td id="T_32100_row5_col5" class="data row5 col5" >nan</td>
+      <td id="T_32100_row5_col6" class="data row5 col6" >1.091715</td>
+      <td id="T_32100_row5_col7" class="data row5 col7" >nan</td>
+      <td id="T_32100_row5_col8" class="data row5 col8" >0.680182</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row6" class="row_heading level0 row6" >min</th>
+      <td id="T_32100_row6_col0" class="data row6 col0" >1.000000</td>
+      <td id="T_32100_row6_col1" class="data row6 col1" >nan</td>
+      <td id="T_32100_row6_col2" class="data row6 col2" >1.000000</td>
+      <td id="T_32100_row6_col3" class="data row6 col3" >0.000000</td>
+      <td id="T_32100_row6_col4" class="data row6 col4" >nan</td>
+      <td id="T_32100_row6_col5" class="data row6 col5" >nan</td>
+      <td id="T_32100_row6_col6" class="data row6 col6" >1.000000</td>
+      <td id="T_32100_row6_col7" class="data row6 col7" >nan</td>
+      <td id="T_32100_row6_col8" class="data row6 col8" >1.000000</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row7" class="row_heading level0 row7" >25%</th>
+      <td id="T_32100_row7_col0" class="data row7 col0" >1.000000</td>
+      <td id="T_32100_row7_col1" class="data row7 col1" >nan</td>
+      <td id="T_32100_row7_col2" class="data row7 col2" >2.000000</td>
+      <td id="T_32100_row7_col3" class="data row7 col3" >2.000000</td>
+      <td id="T_32100_row7_col4" class="data row7 col4" >nan</td>
+      <td id="T_32100_row7_col5" class="data row7 col5" >nan</td>
+      <td id="T_32100_row7_col6" class="data row7 col6" >2.000000</td>
+      <td id="T_32100_row7_col7" class="data row7 col7" >nan</td>
+      <td id="T_32100_row7_col8" class="data row7 col8" >1.000000</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row8" class="row_heading level0 row8" >50%</th>
+      <td id="T_32100_row8_col0" class="data row8 col0" >2.000000</td>
+      <td id="T_32100_row8_col1" class="data row8 col1" >nan</td>
+      <td id="T_32100_row8_col2" class="data row8 col2" >3.000000</td>
+      <td id="T_32100_row8_col3" class="data row8 col3" >2.500000</td>
+      <td id="T_32100_row8_col4" class="data row8 col4" >nan</td>
+      <td id="T_32100_row8_col5" class="data row8 col5" >nan</td>
+      <td id="T_32100_row8_col6" class="data row8 col6" >3.000000</td>
+      <td id="T_32100_row8_col7" class="data row8 col7" >nan</td>
+      <td id="T_32100_row8_col8" class="data row8 col8" >1.000000</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row9" class="row_heading level0 row9" >75%</th>
+      <td id="T_32100_row9_col0" class="data row9 col0" >2.000000</td>
+      <td id="T_32100_row9_col1" class="data row9 col1" >nan</td>
+      <td id="T_32100_row9_col2" class="data row9 col2" >4.000000</td>
+      <td id="T_32100_row9_col3" class="data row9 col3" >4.000000</td>
+      <td id="T_32100_row9_col4" class="data row9 col4" >nan</td>
+      <td id="T_32100_row9_col5" class="data row9 col5" >nan</td>
+      <td id="T_32100_row9_col6" class="data row9 col6" >4.000000</td>
+      <td id="T_32100_row9_col7" class="data row9 col7" >nan</td>
+      <td id="T_32100_row9_col8" class="data row9 col8" >2.000000</td>
+    </tr>
+    <tr>
+      <th id="T_32100_level0_row10" class="row_heading level0 row10" >max</th>
+      <td id="T_32100_row10_col0" class="data row10 col0" >4.000000</td>
+      <td id="T_32100_row10_col1" class="data row10 col1" >nan</td>
+      <td id="T_32100_row10_col2" class="data row10 col2" >4.000000</td>
+      <td id="T_32100_row10_col3" class="data row10 col3" >4.000000</td>
+      <td id="T_32100_row10_col4" class="data row10 col4" >nan</td>
+      <td id="T_32100_row10_col5" class="data row10 col5" >nan</td>
+      <td id="T_32100_row10_col6" class="data row10 col6" >5.000000</td>
+      <td id="T_32100_row10_col7" class="data row10 col7" >nan</td>
+      <td id="T_32100_row10_col8" class="data row10 col8" >4.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>Using panda’s describe all and styler to make a table, we can find many useful pieces of information for all of our features. For numerical features, we can see interesting pieces of info such as the average mother education is higher than the average father education. Furthermore, for categorical variables, we can see interesting info such as the most frequent parent status in our training set is that they are still living together and most people are not in a romantic relationship.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">desiredFeatures</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;goout&quot;</span><span class="p">,</span> <span class="s2">&quot;traveltime&quot;</span><span class="p">]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;study time vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;Mother education vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;Father education vs grade&quot;</span><span class="p">,</span> 
+                                     <span class="s2">&quot;time spent with friends vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;travel time vs grade&quot;</span><span class="p">]</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Figure 2 A series of plots examining the numeric features compared to predicted grade&quot;</span>
+<span class="n">plotSquareData</span><span class="o">.</span><span class="n">plot_square_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">desiredFeatures</span><span class="p">,</span> <span class="n">titles</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/StudentPerformance_11_0.png" src="_images/StudentPerformance_11_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;study time vs grade&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Mother education vs grade&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Father education vs grade&#39;}&gt;],
+        [&lt;AxesSubplot:title={&#39;center&#39;:&#39;time spent with friends vs grade&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;travel time vs grade&#39;}&gt;,
+         &lt;AxesSubplot:&gt;]], dtype=object),
+ &lt;Figure size 720x720 with 6 Axes&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>From these numeric features, we can see that for the most part, there is no relation between these features and predicted grade. The only truly interesting thing to note is that with higher travel time, it seems that the range of grades gets narrower and narrower such that the low end of the range is higher than lower values of travel time, but the high end of the range is also much lower compared to lower values of travel time. Of course, it is difficult to say whether this is true or not given the low number of samples for higher travel time.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">desiredFeatures</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pstatus&quot;</span><span class="p">,</span> <span class="s2">&quot;Mjob&quot;</span><span class="p">,</span> <span class="s2">&quot;Fjob&quot;</span><span class="p">,</span> <span class="s2">&quot;romantic&quot;</span><span class="p">]</span>
+<span class="n">titles</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;P status vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;Mother job vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;Father Job vs grade&quot;</span><span class="p">,</span> <span class="s2">&quot;Relationship status vs grade&quot;</span><span class="p">]</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Figure 3 A series of histograms examining the distribution of categorical features&quot;</span>
+<span class="n">plotSquareData</span><span class="o">.</span><span class="n">plot_square_data</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">desiredFeatures</span><span class="p">,</span> <span class="n">titles</span><span class="p">,</span> <span class="n">txt</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/StudentPerformance_13_0.png" src="_images/StudentPerformance_13_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([[&lt;AxesSubplot:title={&#39;center&#39;:&#39;P status vs grade&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Mother job vs grade&#39;}&gt;],
+        [&lt;AxesSubplot:title={&#39;center&#39;:&#39;Father Job vs grade&#39;}&gt;,
+         &lt;AxesSubplot:title={&#39;center&#39;:&#39;Relationship status vs grade&#39;}&gt;]],
+       dtype=object),
+ &lt;Figure size 720x720 with 4 Axes&gt;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>From this exploratory categorical variable analysis, we can see that for some of these variables, we have a big imbalance between classes. This is especially prominent in P status and Father job. The consequence of this is that the coefficient end up not being very useful in terms of predicting grades as, for example, P status = t may have lots of representation in high and low categories. Furthermore, given the low amount of P status = A, the model we use might misrepresent the data if all of the “A” values end up being either high or low grades, and not a mix of both when we apply our model to the test set..</p>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<p>Since what we are trying to predict is a quantitative varible based on several variables, it is clear we are aiming for regression analysis. Particularly, the regresion methods from DSCI 110 were knn and least square, where we think the best of the two may be least squares regression. This is namely due to the fact that we hueristically expect quite linear result from many of these variables. Within the scikit-learn package, there are a few options for least squares regression, Linear Regression and Ridge Regression. We will be using Ridge regression, which is functionally similar to linear regression, but manages the coefficients in a manner where none are exceptionally large.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#preprocess the data to make sure the scaling is correct and the categorical variables are encoded properly</span>
+<span class="n">numeric_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;studytime&quot;</span><span class="p">,</span> <span class="s2">&quot;Medu&quot;</span><span class="p">,</span> <span class="s2">&quot;Fedu&quot;</span><span class="p">,</span> <span class="s2">&quot;goout&quot;</span><span class="p">,</span> <span class="s2">&quot;traveltime&quot;</span><span class="p">]</span>
+<span class="n">categorical_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mjob&quot;</span><span class="p">,</span> <span class="s2">&quot;Fjob&quot;</span><span class="p">]</span>
+<span class="n">binary_features</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Pstatus&quot;</span><span class="p">,</span> <span class="s2">&quot;romantic&quot;</span><span class="p">]</span>
+
+<span class="n">preprocessor</span> <span class="o">=</span> <span class="n">make_column_transformer</span><span class="p">(</span>
+    <span class="p">(</span><span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(),</span> <span class="n">StandardScaler</span><span class="p">()),</span> <span class="n">numeric_features</span><span class="p">),</span> 
+    <span class="p">(</span><span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;constant&quot;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;missing&quot;</span><span class="p">),</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">handle_unknown</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="n">sparse</span><span class="o">=</span><span class="kc">False</span><span class="p">)),</span> <span class="n">categorical_features</span><span class="p">),</span>
+    <span class="p">(</span><span class="n">make_pipeline</span><span class="p">(</span><span class="n">SimpleImputer</span><span class="p">(</span><span class="n">strategy</span><span class="o">=</span><span class="s2">&quot;most_frequent&quot;</span><span class="p">),</span> <span class="n">OneHotEncoder</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="s2">&quot;if_binary&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)),</span> <span class="n">binary_features</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we have a few categorical variables and binary variables, we need to encode the data in a manner our model can read, and we decided on one hot encoding given its simplicity. Lastly, while there is no missing data in the dataset, we thought it would be a good idea to use simple imputer in case we run into a situation were there is missing data in our test set or if we decide to use this model on another dataset with the same features.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#create the pipeline to preprocess our data and apply linear regression</span>
+<span class="n">pipelr</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">123</span><span class="p">))</span>
+
+<span class="n">hyperparams</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="n">param_dist</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;ridge__alpha&quot;</span><span class="p">:</span> <span class="n">hyperparams</span><span class="p">}</span>
+
+<span class="n">rand_search</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipelr</span><span class="p">,</span> <span class="n">param_dist</span><span class="p">,</span> <span class="n">n_jobs</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">scoring</span> <span class="o">=</span> <span class="s2">&quot;neg_root_mean_squared_error&quot;</span><span class="p">)</span>
+<span class="n">rand_search</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rand_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">rand_search</span><span class="o">.</span><span class="n">best_score_</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ridge__alpha&#39;: 2.2108588352971097}
+-4.652592434307543
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_results</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rand_search</span><span class="o">.</span><span class="n">cv_results_</span><span class="p">)</span>
+<span class="n">df_results2</span> <span class="o">=</span> <span class="n">df_results</span><span class="p">[</span><span class="n">df_results</span><span class="o">.</span><span class="n">rank_test_score</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;mean_score_time&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;std_score_time&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;split0_test_score&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;split1_test_score&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;split2_test_score&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;split3_test_score&quot;</span><span class="p">,</span>
+                                                             <span class="s2">&quot;split4_test_score&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_results2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>param_ridge__alpha</th>
+      <th>params</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.036515</td>
+      <td>0.011295</td>
+      <td>1.746748</td>
+      <td>{'ridge__alpha': 1.7467483411033473}</td>
+      <td>-4.655601</td>
+      <td>0.291589</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.025580</td>
+      <td>0.003374</td>
+      <td>2.210859</td>
+      <td>{'ridge__alpha': 2.2108588352971097}</td>
+      <td>-4.652592</td>
+      <td>0.292203</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.025573</td>
+      <td>0.004078</td>
+      <td>0.804907</td>
+      <td>{'ridge__alpha': 0.8049068554789366}</td>
+      <td>-4.662555</td>
+      <td>0.290085</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.016423</td>
+      <td>0.002572</td>
+      <td>2.202065</td>
+      <td>{'ridge__alpha': 2.2020651813264593}</td>
+      <td>-4.652647</td>
+      <td>0.292192</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Ridge Regression takes in 1 hyperparameter that controls the complexity of the model. With higher levels of alpha, we have lower model complexity. We do 5 fold cross validation because it is not too computationally expensive, and we do randomizedsearch because it is better at exploring hyperparameters than gridsearch. The default scoring method of sklearn regression is R^2 score, but it found that RMSE score is easier to interpret in the context of this dataset, therefore we pass in RMSE as the scoring function. While we pass in neg RMSE, it is just as easy to interpret since we just want to look for how close the score is to 0, where the closer it is to 0, the less error it has. Thanks to scikit-learn, we have an easy method of finding out what our best performing hyperparameters are. In this case, the best performing hpyerparameter was a Ridge_alpha value of 9.93, with a mean test error of 4.623</p>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have our best performing hyperparameter, we can pass in the best param into our model. Then we can train that model on the entire training set and evaluate it on our testing set.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipelr2</span> <span class="o">=</span> <span class="n">make_pipeline</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="n">Ridge</span><span class="p">(</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">rand_search</span><span class="o">.</span><span class="n">best_params_</span><span class="p">[</span><span class="s1">&#39;ridge__alpha&#39;</span><span class="p">]))</span>
+<span class="n">pipelr2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">predicted</span> <span class="o">=</span> <span class="n">pipelr2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">rms</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">squared</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df_final</span> <span class="o">=</span> <span class="n">df_results</span><span class="p">[</span><span class="n">df_results</span><span class="o">.</span><span class="n">rank_test_score</span> <span class="o">==</span> <span class="n">df_results</span><span class="o">.</span><span class="n">rank_test_score</span><span class="o">.</span><span class="n">min</span><span class="p">()]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;mean_score_time&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;std_score_time&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;split0_test_score&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;split1_test_score&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;split2_test_score&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;split3_test_score&quot;</span><span class="p">,</span>
+                                                                                             <span class="s2">&quot;split4_test_score&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_final</span><span class="p">[</span><span class="s2">&quot;final score&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">rms</span>
+<span class="n">df_final</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>mean_fit_time</th>
+      <th>std_fit_time</th>
+      <th>param_ridge__alpha</th>
+      <th>params</th>
+      <th>mean_test_score</th>
+      <th>std_test_score</th>
+      <th>rank_test_score</th>
+      <th>final score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>0.02558</td>
+      <td>0.003374</td>
+      <td>2.210859</td>
+      <td>{'ridge__alpha': 2.2108588352971097}</td>
+      <td>-4.652592</td>
+      <td>0.292203</td>
+      <td>1</td>
+      <td>-3.874584</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The final RMSE error is:&quot;</span><span class="p">,</span> <span class="n">rms</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The final RMSE error is: 3.874583765704543
+</pre></div>
+</div>
+</div>
+</div>
+<p>According to our best model, our RMSE is 3.83 which is better than the value we obtained from cross validation. This suggests one of two things, 1. either our model generalized well on this new dataset, or 2. we happened to be lucky for the test set and the model wont generalize well to other datasets in practice.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Predicted Grade vs True Grade&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">predicted</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">y_test</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_test</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="s2">&quot;--k&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;true grade&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;predicted grade&quot;</span><span class="p">)</span>
+<span class="n">txt</span> <span class="o">=</span> <span class="s2">&quot;Figure 4. A plot displaying the relation between the predicted grade and the actual grade&quot;</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figtext</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">txt</span><span class="p">,</span> <span class="n">wrap</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, -0.05, &#39;Figure 4. A plot displaying the relation between the predicted grade and the actual grade&#39;)
+</pre></div>
+</div>
+<img alt="_images/StudentPerformance_27_1.png" src="_images/StudentPerformance_27_1.png" />
+</div>
+</div>
+<p>The regression graph shows that we predict roughly the same values no matter what the true grade of the student happens to be. Only at the very high true grades do we see the predictions start to increase, albeit marginally. The range at low values is a bit larger at about 5-12.5 while at high true grades, it is about 8-13.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#ohe_columns = listfun.list_abs(preprocessor, &quot;pipeline-2&quot;, &quot;onehotencoder&quot;, categorical_features)</span>
+<span class="n">ohe_columns</span> <span class="o">=</span> <span class="n">listfun</span><span class="o">.</span><span class="n">list_abs</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="s2">&quot;pipeline-2&quot;</span><span class="p">,</span> <span class="s2">&quot;onehotencoder&quot;</span><span class="p">,</span> <span class="n">categorical_features</span><span class="p">)</span>
+<span class="n">ohe_columns2</span> <span class="o">=</span> <span class="n">listfun</span><span class="o">.</span><span class="n">list_abs</span><span class="p">(</span><span class="n">preprocessor</span><span class="p">,</span> <span class="s2">&quot;pipeline-3&quot;</span><span class="p">,</span> <span class="s2">&quot;onehotencoder&quot;</span><span class="p">,</span> <span class="n">binary_features</span><span class="p">)</span>
+
+<span class="n">new_columns</span> <span class="o">=</span> <span class="n">numeric_features</span> <span class="o">+</span> <span class="n">ohe_columns</span> <span class="o">+</span> <span class="n">ohe_columns2</span>
+
+<span class="n">df_coeff</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="n">data</span><span class="o">=</span><span class="p">{</span>
+        <span class="s2">&quot;features&quot;</span><span class="p">:</span> <span class="n">new_columns</span><span class="p">,</span>
+        <span class="s2">&quot;coefficients&quot;</span><span class="p">:</span> <span class="n">pipelr2</span><span class="o">.</span><span class="n">named_steps</span><span class="p">[</span><span class="s2">&quot;ridge&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ohe_columns2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Pstatus_T&#39;, &#39;romantic_yes&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_coeff</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;coefficients&quot;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>features</th>
+      <th>coefficients</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>Mjob_health</td>
+      <td>1.111501</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Fjob_teacher</td>
+      <td>1.036173</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Medu</td>
+      <td>0.879067</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Mjob_services</td>
+      <td>0.470751</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>studytime</td>
+      <td>0.336286</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Mjob_teacher</td>
+      <td>-0.573099</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>goout</td>
+      <td>-0.640134</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Mjob_at_home</td>
+      <td>-0.658055</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Pstatus_T</td>
+      <td>-0.798655</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>romantic_yes</td>
+      <td>-1.459868</td>
+    </tr>
+  </tbody>
+</table>
+<p>17 rows × 2 columns</p>
+</div></div></div>
+</div>
+<p>Looking at what feature make the most impact in predicting high true grades, we see that the mother has a very large impact on the predicted grades. Depending on the mother’s job, it can positively influence the final grade or it can negatively impact it. We also see that being in a romantic relationship seems to be the most impactful at predicting lower grades. Interestingly, study time isn’t the most influential part feature despite intuition telling us that with higher study time, we would except to get higher grades.</p>
+</div>
+<div class="section" id="discussion">
+<h2>Discussion:<a class="headerlink" href="#discussion" title="Permalink to this headline">¶</a></h2>
+<p>Using the 9 features we presented above, we were able to create a linear regression model with an RMSE error of 3.83. Given the scale of the target variable (G3) is 0-20, we find that this error is very high; therefore, we find that using features predominately consisting on demographic and social factors would not lend itself well to accurately predicting grade. This high error can be seen in our regression graph, where the predictions seem to be consistent in the 5-13 range no matter what the true grade of the student is. This can be interpreted as a positive outcome, as it suggests that your performance in school is only mildly impacted by demographic (e.g. parent job) and social (e.g. romantic) factors, which means more emphasis is likely placed on how much effort you apply to the course.</p>
+<p>When examining the coefficients, this does reflect some of the finding found by Pritchard &amp; Wilson (2003), as they found that parent’s education seemed to be one of the most influential factors in predicting high grades as we see that mother’s education is the third highest predictor of high grades. On the other hand, we see that this is only true of the mother’s education, since the father’s education level seems to be quite unimpactful. It is interesting to see how much influence the mother has when compared to the father. Given that we do not see coefficients regarding the father much in these top 5 or bottom 5 coefficients, we can say that the father doesn’t have much of an impact at all unless he happens to work as a teacher. Lastly, we expected goout and romantic to have a negative correlation with your final grade as you are likely to be spending your time with your peers rather than studying. This expectation was reflected strongly in the analysis.</p>
+<p>A future question we could ask using this dataset is how effective pure academic features such as study time and number of classes failed perform when trying to predict final grade. We see that study time, while we intuitively thought would have a major positive correlation with high grades, is only the 5th highest coefficient. This suggests that it is quite possible that demographic and social factors may have a higher impact than we see from this report, such that it is absolutely required that we look at social, demographic, and academic factors at the same time. Is academic factors dominant in predicting grade or does demographic and social factors have a higher impact than it seems?</p>
+</div>
+<div class="section" id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this headline">¶</a></h2>
+<p>Cortez, P. (2014). Student Performance. UCI Machine Learning Repository.</p>
+<p>Cortez,  P.,  &amp;  Silva, A.  (2008).  Using  data  mining  to  predict  secondary school  student  performance.  15th European Concurrent Engineering Conference 2008,  ECEC 2008 - 5th  Future Business Technology Conference, FUBUTEC 2008, 2003(2000), 5–12.</p>
+<p>Roser, M., &amp; Ortiz-Ospina, E., (2016) - “Global Education”. Published online at <a class="reference external" href="http://OurWorldInData.org">OurWorldInData.org</a>. Retrieved from: ‘<a class="reference external" href="https://ourworldindata.org/global-education">https://ourworldindata.org/global-education</a>’ [Online Resource]</p>
+<p>Pritchard, M. E., &amp; Wilson, Gregory S. (Gregory Scott). (2003). Using emotional and social factors to predict student success. Journal of College Student Development, 44(1), 18-28. <a class="reference external" href="https://doi.org/10.1353/csd.2003.0008">https://doi.org/10.1353/csd.2003.0008</a></p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Introduction</p>
+        </div>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Andres, Daniel, Zizhen, Timothy<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

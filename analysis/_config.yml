@@ -1,0 +1,10 @@
+title: "Predicting Final Grade"
+author: "Andres, Daniel, Zizhen, Timothy"
+date: "2022-03-25"
+sphinx:
+  config:
+    bibtex_reference_style: author_year
+execute:
+  execute_notebooks: force 
+bibtex_bibfiles:
+    - references.bib
