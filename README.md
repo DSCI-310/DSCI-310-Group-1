@@ -68,7 +68,7 @@ To run the tests, please go to the root folder of the project and use the comman
   | scikit-learn | >= 1.0.0 |
   | numpy        | >= 1.2.0 |
   | pytest       | >= 7.0.1 |
-
+  | docopt       | >= 0.6.2 |
 
 
 ---
