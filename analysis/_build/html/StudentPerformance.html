@@ -53,7 +53,6 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Introduction" href="intro.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -87,15 +86,30 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="intro.html">
-   Introduction
+  <a class="reference internal" href="contents.html">
+   Predicting Students’ Final Grades Using Regression Analysis
   </a>
  </li>
 </ul>
-<ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
-   Predicting Final Grade
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="introduction.html">
+   Introduction
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="exploratory_analysis.html">
+   Exploratory Data Analysis
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="results.html">
+   Results
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="discussion.html">
+   Discussion
   </a>
  </li>
 </ul>
@@ -611,7 +625,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
 </style>
-<table id="T_32100_">
+<table id="T_56776_">
   <caption>Figure 1.0. A table desplaying the most common values of each categorical variable along side percentiles of numerical variables</caption>
   <thead>
     <tr>
@@ -629,136 +643,136 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th id="T_32100_level0_row0" class="row_heading level0 row0" >count</th>
-      <td id="T_32100_row0_col0" class="data row0 col0" >316.000000</td>
-      <td id="T_32100_row0_col1" class="data row0 col1" >316</td>
-      <td id="T_32100_row0_col2" class="data row0 col2" >316.000000</td>
-      <td id="T_32100_row0_col3" class="data row0 col3" >316.000000</td>
-      <td id="T_32100_row0_col4" class="data row0 col4" >316</td>
-      <td id="T_32100_row0_col5" class="data row0 col5" >316</td>
-      <td id="T_32100_row0_col6" class="data row0 col6" >316.000000</td>
-      <td id="T_32100_row0_col7" class="data row0 col7" >316</td>
-      <td id="T_32100_row0_col8" class="data row0 col8" >316.000000</td>
+      <th id="T_56776_level0_row0" class="row_heading level0 row0" >count</th>
+      <td id="T_56776_row0_col0" class="data row0 col0" >316.000000</td>
+      <td id="T_56776_row0_col1" class="data row0 col1" >316</td>
+      <td id="T_56776_row0_col2" class="data row0 col2" >316.000000</td>
+      <td id="T_56776_row0_col3" class="data row0 col3" >316.000000</td>
+      <td id="T_56776_row0_col4" class="data row0 col4" >316</td>
+      <td id="T_56776_row0_col5" class="data row0 col5" >316</td>
+      <td id="T_56776_row0_col6" class="data row0 col6" >316.000000</td>
+      <td id="T_56776_row0_col7" class="data row0 col7" >316</td>
+      <td id="T_56776_row0_col8" class="data row0 col8" >316.000000</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row1" class="row_heading level0 row1" >unique</th>
-      <td id="T_32100_row1_col0" class="data row1 col0" >nan</td>
-      <td id="T_32100_row1_col1" class="data row1 col1" >2</td>
-      <td id="T_32100_row1_col2" class="data row1 col2" >nan</td>
-      <td id="T_32100_row1_col3" class="data row1 col3" >nan</td>
-      <td id="T_32100_row1_col4" class="data row1 col4" >5</td>
-      <td id="T_32100_row1_col5" class="data row1 col5" >5</td>
-      <td id="T_32100_row1_col6" class="data row1 col6" >nan</td>
-      <td id="T_32100_row1_col7" class="data row1 col7" >2</td>
-      <td id="T_32100_row1_col8" class="data row1 col8" >nan</td>
+      <th id="T_56776_level0_row1" class="row_heading level0 row1" >unique</th>
+      <td id="T_56776_row1_col0" class="data row1 col0" >nan</td>
+      <td id="T_56776_row1_col1" class="data row1 col1" >2</td>
+      <td id="T_56776_row1_col2" class="data row1 col2" >nan</td>
+      <td id="T_56776_row1_col3" class="data row1 col3" >nan</td>
+      <td id="T_56776_row1_col4" class="data row1 col4" >5</td>
+      <td id="T_56776_row1_col5" class="data row1 col5" >5</td>
+      <td id="T_56776_row1_col6" class="data row1 col6" >nan</td>
+      <td id="T_56776_row1_col7" class="data row1 col7" >2</td>
+      <td id="T_56776_row1_col8" class="data row1 col8" >nan</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row2" class="row_heading level0 row2" >top</th>
-      <td id="T_32100_row2_col0" class="data row2 col0" >nan</td>
-      <td id="T_32100_row2_col1" class="data row2 col1" >T</td>
-      <td id="T_32100_row2_col2" class="data row2 col2" >nan</td>
-      <td id="T_32100_row2_col3" class="data row2 col3" >nan</td>
-      <td id="T_32100_row2_col4" class="data row2 col4" >other</td>
-      <td id="T_32100_row2_col5" class="data row2 col5" >other</td>
-      <td id="T_32100_row2_col6" class="data row2 col6" >nan</td>
-      <td id="T_32100_row2_col7" class="data row2 col7" >no</td>
-      <td id="T_32100_row2_col8" class="data row2 col8" >nan</td>
+      <th id="T_56776_level0_row2" class="row_heading level0 row2" >top</th>
+      <td id="T_56776_row2_col0" class="data row2 col0" >nan</td>
+      <td id="T_56776_row2_col1" class="data row2 col1" >T</td>
+      <td id="T_56776_row2_col2" class="data row2 col2" >nan</td>
+      <td id="T_56776_row2_col3" class="data row2 col3" >nan</td>
+      <td id="T_56776_row2_col4" class="data row2 col4" >other</td>
+      <td id="T_56776_row2_col5" class="data row2 col5" >other</td>
+      <td id="T_56776_row2_col6" class="data row2 col6" >nan</td>
+      <td id="T_56776_row2_col7" class="data row2 col7" >no</td>
+      <td id="T_56776_row2_col8" class="data row2 col8" >nan</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row3" class="row_heading level0 row3" >freq</th>
-      <td id="T_32100_row3_col0" class="data row3 col0" >nan</td>
-      <td id="T_32100_row3_col1" class="data row3 col1" >290</td>
-      <td id="T_32100_row3_col2" class="data row3 col2" >nan</td>
-      <td id="T_32100_row3_col3" class="data row3 col3" >nan</td>
-      <td id="T_32100_row3_col4" class="data row3 col4" >115</td>
-      <td id="T_32100_row3_col5" class="data row3 col5" >174</td>
-      <td id="T_32100_row3_col6" class="data row3 col6" >nan</td>
-      <td id="T_32100_row3_col7" class="data row3 col7" >209</td>
-      <td id="T_32100_row3_col8" class="data row3 col8" >nan</td>
+      <th id="T_56776_level0_row3" class="row_heading level0 row3" >freq</th>
+      <td id="T_56776_row3_col0" class="data row3 col0" >nan</td>
+      <td id="T_56776_row3_col1" class="data row3 col1" >290</td>
+      <td id="T_56776_row3_col2" class="data row3 col2" >nan</td>
+      <td id="T_56776_row3_col3" class="data row3 col3" >nan</td>
+      <td id="T_56776_row3_col4" class="data row3 col4" >115</td>
+      <td id="T_56776_row3_col5" class="data row3 col5" >174</td>
+      <td id="T_56776_row3_col6" class="data row3 col6" >nan</td>
+      <td id="T_56776_row3_col7" class="data row3 col7" >209</td>
+      <td id="T_56776_row3_col8" class="data row3 col8" >nan</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row4" class="row_heading level0 row4" >mean</th>
-      <td id="T_32100_row4_col0" class="data row4 col0" >2.047468</td>
-      <td id="T_32100_row4_col1" class="data row4 col1" >nan</td>
-      <td id="T_32100_row4_col2" class="data row4 col2" >2.797468</td>
-      <td id="T_32100_row4_col3" class="data row4 col3" >2.547468</td>
-      <td id="T_32100_row4_col4" class="data row4 col4" >nan</td>
-      <td id="T_32100_row4_col5" class="data row4 col5" >nan</td>
-      <td id="T_32100_row4_col6" class="data row4 col6" >3.120253</td>
-      <td id="T_32100_row4_col7" class="data row4 col7" >nan</td>
-      <td id="T_32100_row4_col8" class="data row4 col8" >1.436709</td>
+      <th id="T_56776_level0_row4" class="row_heading level0 row4" >mean</th>
+      <td id="T_56776_row4_col0" class="data row4 col0" >2.047468</td>
+      <td id="T_56776_row4_col1" class="data row4 col1" >nan</td>
+      <td id="T_56776_row4_col2" class="data row4 col2" >2.797468</td>
+      <td id="T_56776_row4_col3" class="data row4 col3" >2.547468</td>
+      <td id="T_56776_row4_col4" class="data row4 col4" >nan</td>
+      <td id="T_56776_row4_col5" class="data row4 col5" >nan</td>
+      <td id="T_56776_row4_col6" class="data row4 col6" >3.120253</td>
+      <td id="T_56776_row4_col7" class="data row4 col7" >nan</td>
+      <td id="T_56776_row4_col8" class="data row4 col8" >1.436709</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row5" class="row_heading level0 row5" >std</th>
-      <td id="T_32100_row5_col0" class="data row5 col0" >0.843816</td>
-      <td id="T_32100_row5_col1" class="data row5 col1" >nan</td>
-      <td id="T_32100_row5_col2" class="data row5 col2" >1.067616</td>
-      <td id="T_32100_row5_col3" class="data row5 col3" >1.090053</td>
-      <td id="T_32100_row5_col4" class="data row5 col4" >nan</td>
-      <td id="T_32100_row5_col5" class="data row5 col5" >nan</td>
-      <td id="T_32100_row5_col6" class="data row5 col6" >1.091715</td>
-      <td id="T_32100_row5_col7" class="data row5 col7" >nan</td>
-      <td id="T_32100_row5_col8" class="data row5 col8" >0.680182</td>
+      <th id="T_56776_level0_row5" class="row_heading level0 row5" >std</th>
+      <td id="T_56776_row5_col0" class="data row5 col0" >0.843816</td>
+      <td id="T_56776_row5_col1" class="data row5 col1" >nan</td>
+      <td id="T_56776_row5_col2" class="data row5 col2" >1.067616</td>
+      <td id="T_56776_row5_col3" class="data row5 col3" >1.090053</td>
+      <td id="T_56776_row5_col4" class="data row5 col4" >nan</td>
+      <td id="T_56776_row5_col5" class="data row5 col5" >nan</td>
+      <td id="T_56776_row5_col6" class="data row5 col6" >1.091715</td>
+      <td id="T_56776_row5_col7" class="data row5 col7" >nan</td>
+      <td id="T_56776_row5_col8" class="data row5 col8" >0.680182</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row6" class="row_heading level0 row6" >min</th>
-      <td id="T_32100_row6_col0" class="data row6 col0" >1.000000</td>
-      <td id="T_32100_row6_col1" class="data row6 col1" >nan</td>
-      <td id="T_32100_row6_col2" class="data row6 col2" >1.000000</td>
-      <td id="T_32100_row6_col3" class="data row6 col3" >0.000000</td>
-      <td id="T_32100_row6_col4" class="data row6 col4" >nan</td>
-      <td id="T_32100_row6_col5" class="data row6 col5" >nan</td>
-      <td id="T_32100_row6_col6" class="data row6 col6" >1.000000</td>
-      <td id="T_32100_row6_col7" class="data row6 col7" >nan</td>
-      <td id="T_32100_row6_col8" class="data row6 col8" >1.000000</td>
+      <th id="T_56776_level0_row6" class="row_heading level0 row6" >min</th>
+      <td id="T_56776_row6_col0" class="data row6 col0" >1.000000</td>
+      <td id="T_56776_row6_col1" class="data row6 col1" >nan</td>
+      <td id="T_56776_row6_col2" class="data row6 col2" >1.000000</td>
+      <td id="T_56776_row6_col3" class="data row6 col3" >0.000000</td>
+      <td id="T_56776_row6_col4" class="data row6 col4" >nan</td>
+      <td id="T_56776_row6_col5" class="data row6 col5" >nan</td>
+      <td id="T_56776_row6_col6" class="data row6 col6" >1.000000</td>
+      <td id="T_56776_row6_col7" class="data row6 col7" >nan</td>
+      <td id="T_56776_row6_col8" class="data row6 col8" >1.000000</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row7" class="row_heading level0 row7" >25%</th>
-      <td id="T_32100_row7_col0" class="data row7 col0" >1.000000</td>
-      <td id="T_32100_row7_col1" class="data row7 col1" >nan</td>
-      <td id="T_32100_row7_col2" class="data row7 col2" >2.000000</td>
-      <td id="T_32100_row7_col3" class="data row7 col3" >2.000000</td>
-      <td id="T_32100_row7_col4" class="data row7 col4" >nan</td>
-      <td id="T_32100_row7_col5" class="data row7 col5" >nan</td>
-      <td id="T_32100_row7_col6" class="data row7 col6" >2.000000</td>
-      <td id="T_32100_row7_col7" class="data row7 col7" >nan</td>
-      <td id="T_32100_row7_col8" class="data row7 col8" >1.000000</td>
+      <th id="T_56776_level0_row7" class="row_heading level0 row7" >25%</th>
+      <td id="T_56776_row7_col0" class="data row7 col0" >1.000000</td>
+      <td id="T_56776_row7_col1" class="data row7 col1" >nan</td>
+      <td id="T_56776_row7_col2" class="data row7 col2" >2.000000</td>
+      <td id="T_56776_row7_col3" class="data row7 col3" >2.000000</td>
+      <td id="T_56776_row7_col4" class="data row7 col4" >nan</td>
+      <td id="T_56776_row7_col5" class="data row7 col5" >nan</td>
+      <td id="T_56776_row7_col6" class="data row7 col6" >2.000000</td>
+      <td id="T_56776_row7_col7" class="data row7 col7" >nan</td>
+      <td id="T_56776_row7_col8" class="data row7 col8" >1.000000</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row8" class="row_heading level0 row8" >50%</th>
-      <td id="T_32100_row8_col0" class="data row8 col0" >2.000000</td>
-      <td id="T_32100_row8_col1" class="data row8 col1" >nan</td>
-      <td id="T_32100_row8_col2" class="data row8 col2" >3.000000</td>
-      <td id="T_32100_row8_col3" class="data row8 col3" >2.500000</td>
-      <td id="T_32100_row8_col4" class="data row8 col4" >nan</td>
-      <td id="T_32100_row8_col5" class="data row8 col5" >nan</td>
-      <td id="T_32100_row8_col6" class="data row8 col6" >3.000000</td>
-      <td id="T_32100_row8_col7" class="data row8 col7" >nan</td>
-      <td id="T_32100_row8_col8" class="data row8 col8" >1.000000</td>
+      <th id="T_56776_level0_row8" class="row_heading level0 row8" >50%</th>
+      <td id="T_56776_row8_col0" class="data row8 col0" >2.000000</td>
+      <td id="T_56776_row8_col1" class="data row8 col1" >nan</td>
+      <td id="T_56776_row8_col2" class="data row8 col2" >3.000000</td>
+      <td id="T_56776_row8_col3" class="data row8 col3" >2.500000</td>
+      <td id="T_56776_row8_col4" class="data row8 col4" >nan</td>
+      <td id="T_56776_row8_col5" class="data row8 col5" >nan</td>
+      <td id="T_56776_row8_col6" class="data row8 col6" >3.000000</td>
+      <td id="T_56776_row8_col7" class="data row8 col7" >nan</td>
+      <td id="T_56776_row8_col8" class="data row8 col8" >1.000000</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row9" class="row_heading level0 row9" >75%</th>
-      <td id="T_32100_row9_col0" class="data row9 col0" >2.000000</td>
-      <td id="T_32100_row9_col1" class="data row9 col1" >nan</td>
-      <td id="T_32100_row9_col2" class="data row9 col2" >4.000000</td>
-      <td id="T_32100_row9_col3" class="data row9 col3" >4.000000</td>
-      <td id="T_32100_row9_col4" class="data row9 col4" >nan</td>
-      <td id="T_32100_row9_col5" class="data row9 col5" >nan</td>
-      <td id="T_32100_row9_col6" class="data row9 col6" >4.000000</td>
-      <td id="T_32100_row9_col7" class="data row9 col7" >nan</td>
-      <td id="T_32100_row9_col8" class="data row9 col8" >2.000000</td>
+      <th id="T_56776_level0_row9" class="row_heading level0 row9" >75%</th>
+      <td id="T_56776_row9_col0" class="data row9 col0" >2.000000</td>
+      <td id="T_56776_row9_col1" class="data row9 col1" >nan</td>
+      <td id="T_56776_row9_col2" class="data row9 col2" >4.000000</td>
+      <td id="T_56776_row9_col3" class="data row9 col3" >4.000000</td>
+      <td id="T_56776_row9_col4" class="data row9 col4" >nan</td>
+      <td id="T_56776_row9_col5" class="data row9 col5" >nan</td>
+      <td id="T_56776_row9_col6" class="data row9 col6" >4.000000</td>
+      <td id="T_56776_row9_col7" class="data row9 col7" >nan</td>
+      <td id="T_56776_row9_col8" class="data row9 col8" >2.000000</td>
     </tr>
     <tr>
-      <th id="T_32100_level0_row10" class="row_heading level0 row10" >max</th>
-      <td id="T_32100_row10_col0" class="data row10 col0" >4.000000</td>
-      <td id="T_32100_row10_col1" class="data row10 col1" >nan</td>
-      <td id="T_32100_row10_col2" class="data row10 col2" >4.000000</td>
-      <td id="T_32100_row10_col3" class="data row10 col3" >4.000000</td>
-      <td id="T_32100_row10_col4" class="data row10 col4" >nan</td>
-      <td id="T_32100_row10_col5" class="data row10 col5" >nan</td>
-      <td id="T_32100_row10_col6" class="data row10 col6" >5.000000</td>
-      <td id="T_32100_row10_col7" class="data row10 col7" >nan</td>
-      <td id="T_32100_row10_col8" class="data row10 col8" >4.000000</td>
+      <th id="T_56776_level0_row10" class="row_heading level0 row10" >max</th>
+      <td id="T_56776_row10_col0" class="data row10 col0" >4.000000</td>
+      <td id="T_56776_row10_col1" class="data row10 col1" >nan</td>
+      <td id="T_56776_row10_col2" class="data row10 col2" >4.000000</td>
+      <td id="T_56776_row10_col3" class="data row10 col3" >4.000000</td>
+      <td id="T_56776_row10_col4" class="data row10 col4" >nan</td>
+      <td id="T_56776_row10_col5" class="data row10 col5" >nan</td>
+      <td id="T_56776_row10_col6" class="data row10 col6" >5.000000</td>
+      <td id="T_56776_row10_col7" class="data row10 col7" >nan</td>
+      <td id="T_56776_row10_col8" class="data row10 col8" >4.000000</td>
     </tr>
   </tbody>
 </table>
@@ -850,8 +864,8 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ridge__alpha&#39;: 2.2108588352971097}
--4.652592434307543
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ridge__alpha&#39;: 9.162955971111744}
+-4.625321198934909
 </pre></div>
 </div>
 </div>
@@ -900,43 +914,43 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>0.036515</td>
-      <td>0.011295</td>
-      <td>1.746748</td>
-      <td>{'ridge__alpha': 1.7467483411033473}</td>
-      <td>-4.655601</td>
-      <td>0.291589</td>
+      <th>2</th>
+      <td>0.023195</td>
+      <td>0.002187</td>
+      <td>5.509826</td>
+      <td>{'ridge__alpha': 5.509825863168008}</td>
+      <td>-4.636555</td>
+      <td>0.295122</td>
       <td>3</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>0.025580</td>
-      <td>0.003374</td>
-      <td>2.210859</td>
-      <td>{'ridge__alpha': 2.2108588352971097}</td>
-      <td>-4.652592</td>
-      <td>0.292203</td>
-      <td>1</td>
-    </tr>
-    <tr>
       <th>3</th>
-      <td>0.025573</td>
-      <td>0.004078</td>
-      <td>0.804907</td>
-      <td>{'ridge__alpha': 0.8049068554789366}</td>
-      <td>-4.662555</td>
-      <td>0.290085</td>
+      <td>0.023338</td>
+      <td>0.002851</td>
+      <td>1.45501</td>
+      <td>{'ridge__alpha': 1.4550100900519587}</td>
+      <td>-4.657625</td>
+      <td>0.291164</td>
       <td>4</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>0.016423</td>
-      <td>0.002572</td>
-      <td>2.202065</td>
-      <td>{'ridge__alpha': 2.2020651813264593}</td>
-      <td>-4.652647</td>
-      <td>0.292192</td>
+      <th>4</th>
+      <td>0.022675</td>
+      <td>0.002347</td>
+      <td>9.162956</td>
+      <td>{'ridge__alpha': 9.162955971111744}</td>
+      <td>-4.625321</td>
+      <td>0.296881</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0.021459</td>
+      <td>0.001492</td>
+      <td>5.929769</td>
+      <td>{'ridge__alpha': 5.929768652171471}</td>
+      <td>-4.634999</td>
+      <td>0.295377</td>
       <td>2</td>
     </tr>
   </tbody>
@@ -998,15 +1012,15 @@ const thebe_selector_output = ".output, .cell_output"
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td>0.02558</td>
-      <td>0.003374</td>
-      <td>2.210859</td>
-      <td>{'ridge__alpha': 2.2108588352971097}</td>
-      <td>-4.652592</td>
-      <td>0.292203</td>
+      <th>4</th>
+      <td>0.022675</td>
+      <td>0.002347</td>
+      <td>9.162956</td>
+      <td>{'ridge__alpha': 9.162955971111744}</td>
+      <td>-4.625321</td>
+      <td>0.296881</td>
       <td>1</td>
-      <td>-3.874584</td>
+      <td>-3.847312</td>
     </tr>
   </tbody>
 </table>
@@ -1019,7 +1033,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The final RMSE error is: 3.874583765704543
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The final RMSE error is: 3.8473118275146745
 </pre></div>
 </div>
 </div>
@@ -1109,27 +1123,27 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>6</th>
       <td>Mjob_health</td>
-      <td>1.111501</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Fjob_teacher</td>
-      <td>1.036173</td>
+      <td>0.891440</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Medu</td>
-      <td>0.879067</td>
+      <td>0.878755</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Fjob_teacher</td>
+      <td>0.795887</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Mjob_services</td>
-      <td>0.470751</td>
+      <td>0.461555</td>
     </tr>
     <tr>
       <th>0</th>
       <td>studytime</td>
-      <td>0.336286</td>
+      <td>0.320324</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1139,27 +1153,27 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>9</th>
       <td>Mjob_teacher</td>
-      <td>-0.573099</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>goout</td>
-      <td>-0.640134</td>
+      <td>-0.468961</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Mjob_at_home</td>
-      <td>-0.658055</td>
+      <td>-0.569177</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Pstatus_T</td>
-      <td>-0.798655</td>
+      <td>-0.608801</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>goout</td>
+      <td>-0.624541</td>
     </tr>
     <tr>
       <th>16</th>
       <td>romantic_yes</td>
-      <td>-1.459868</td>
+      <td>-1.325585</td>
     </tr>
   </tbody>
 </table>
@@ -1207,14 +1221,7 @@ const thebe_selector_output = ".output, .cell_output"
               
             
                 <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="intro.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Introduction</p>
-        </div>
-    </a>
+<div class='prev-next-area'>
 </div>
             
         </div>

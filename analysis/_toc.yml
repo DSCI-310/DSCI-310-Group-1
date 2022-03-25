@@ -1,4 +1,7 @@
 format: jb-book
-root: intro
+root: contents
 chapters: 
-- file: StudentPerformance
+- file: introduction
+- file: exploratory_analysis
+- file: results
+- file: discussion
