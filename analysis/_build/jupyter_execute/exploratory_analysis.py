@@ -26,18 +26,18 @@ pd.read_csv('../data/raw/student-mat.csv', sep = ";").iloc[:,1:]
 pd.read_csv('../results/exploratory-stu-mat.csv', sep = ",")
 
 
-# From these numeric features, we can see that for the most part, there is no relation between these features and predicted grade. The only truly interesting thing to note is that with higher travel time, it seems that the range of grades gets narrower and narrower such that the low end of the range is higher than lower values of travel time, but the high end of the range is also much lower compared to lower values of travel time. Of course, it is difficult to say whether this is true or not given the low number of samples for higher travel time.
+# From the numeric features represented in {numref}`Figure {number}: {name} <num-fig>`, we can see that for the most part, there is no relation between these features and predicted grade. The only truly interesting thing to note is that with higher travel time, it seems that the range of grades gets narrower and narrower such that the low end of the range is higher than lower values of travel time, but the high end of the range is also much lower compared to lower values of travel time. Of course, it is difficult to say whether this is true or not given the low number of samples for higher travel time.
 
 # :::{figure-md} num-fig
 # <img src="../results/figures/explore_numeric.png" alt="num" class="bg-primary mb-1" width="550px">
 # 
-# This is a caption in **Markdown**!
+# A series of plots examining the numeric features compared to predicted grade
 # :::
+
+# From the exploratory categorical variable analysis indicated by {numref}`Figure {number}: {name} <cat-fig>` , we can see that for some of these variables, we have a big imbalance between classes. This is especially prominent in P status and Father job. The consequence of this is that the coefficient end up not being very useful in terms of predicting grades as, for example, P status = t may have lots of representation in high and low categories. Furthermore, given the low amount of P status = A, the model we use might misrepresent the data if all of the "A" values end up being either high or low grades, and not a mix of both when we apply our model to the test set.
 
 # :::{figure-md} cat-fig
 # <img src="../results/figures/explore_cat.png" alt="cat" class="bg-primary mb-1" width="550px">
 # 
-# This is a caption in **Markdown**!
+# A series of plots examining the categorical features compared to predicted grade
 # :::
-
-# From this exploratory categorical variable analysis, we can see that for some of these variables, we have a big imbalance between classes. This is especially prominent in P status and Father job. The consequence of this is that the coefficient end up not being very useful in terms of predicting grades as, for example, P status = t may have lots of representation in high and low categories. Furthermore, given the low amount of P status = A, the model we use might misrepresent the data if all of the "A" values end up being either high or low grades, and not a mix of both when we apply our model to the test set.
