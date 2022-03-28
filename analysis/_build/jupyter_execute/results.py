@@ -27,7 +27,7 @@ pd.read_csv('../results/finaltable.csv', sep = ";")
 # A plot displaying the relation between the predicted grade and the actual grade
 # :::
 
-# The regression graph {numref}`Figure {number}: {name} <relation-fig>` shows that we predict roughly the same values no matter what the true grade of the student happens to be. Only at the very high true grades do we see the predictions start to increase, albeit marginally. The range at low values is a bit larger at about 5-12.5 while at high true grades, it is about 8-13.
+# The regression graph {numref}`relation-fig` shows that we predict roughly the same values no matter what the true grade of the student happens to be. Only at the very high true grades do we see the predictions start to increase, albeit marginally. The range at low values is a bit larger at about 5-12.5 while at high true grades, it is about 8-13.
 
 # Looking at what feature make the most impact in predicting high true grades, we see that the mother has a very large impact on the predicted grades. Depending on the mother's job, it can positively influence the final grade or it can negatively impact it. We also see that being in a romantic relationship seems to be the most impactful at predicting lower grades. Interestingly, study time isn't the most influential part feature despite intuition telling us that with higher study time, we would except to get higher grades.
 
