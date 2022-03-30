@@ -36,8 +36,8 @@ def main(inloc, location):
     desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
     train_df = pd.read_csv(os.path.join(inloc, "student-mat-train.csv"),sep = ";")
     test_df = pd.read_csv(os.path.join(inloc, "student-mat-test.csv"),sep = ";")
-    X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
-    X_test, y_test = splitxy.splitxy(test_df, desiredfeatures, "G3")
+    X_train, y_train = splitxy.split_xy(train_df, desiredfeatures, "G3")
+    X_test, y_test = splitxy.split_xy(test_df, desiredfeatures, "G3")
     
     numeric_features = ["studytime", "Medu", "Fedu", "goout", "traveltime"]
     categorical_features = ["Mjob", "Fjob"]
@@ -50,20 +50,20 @@ def main(inloc, location):
     )
     
     #make cross validation model
-    cvmodel = makemodel(preprocessor)
+    cvmodel = make_model(preprocessor)
     
     #do crossvalidation and get back the dataframe of results
-    crossval,df = performcrossval(cvmodel,  X_train, y_train, location)
+    crossval,df = perform_crossval(cvmodel,  X_train, y_train, location)
     
     #perform analysis
-    finalmodel = makemodel(preprocessor, crossval.best_params_['ridge__alpha'],)
-    predictions, finalscore = performtesting(finalmodel, X_train, y_train, X_test, y_test)
+    finalmodel = make_model(preprocessor, crossval.best_params_['ridge__alpha'],)
+    predictions, finalscore = perform_testing(finalmodel, X_train, y_train, X_test, y_test)
     
     #make results plot
-    makeplot(predictions, y_test, location)
+    make_plot(predictions, y_test, location)
     
     #make coefficient table
-    coefftable(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel)
+    coeff_table(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel)
     
 
     #make results table
@@ -80,12 +80,12 @@ def main(inloc, location):
     print("done")
     
     
-def makemodel(preprocessor, alpha=1.0):
+def make_model(preprocessor, alpha=1.0):
     pipelr = make_pipeline(preprocessor, Ridge(alpha, random_state=123))
     
     return pipelr
 
-def performcrossval(pipeline, X_train, y_train, location):
+def perform_crossval(pipeline, X_train, y_train, location):
     hyperparams = np.exp(np.random.uniform(-3, 3, 10))
 
     param_dist = {"ridge__alpha": hyperparams}
@@ -104,14 +104,14 @@ def performcrossval(pipeline, X_train, y_train, location):
     df_results2.to_csv(os.path.join(location, "cvtable.csv"), sep = ";")
     return rand_search, df_results
 
-def performtesting(model, X_train, y_train, X_test, y_test):
+def perform_testing(model, X_train, y_train, X_test, y_test):
     model.fit(X_train, y_train)
 
     predicted = model.predict(X_test)
     rms = mean_squared_error(y_test, predicted, squared=False)
     return predicted, rms
 
-def makeplot(predicted, y_test, location):
+def make_plot(predicted, y_test, location):
     figureloc = os.path.join(location, "figures/")
     
     plt.title("Predicted Grade vs True Grade")
@@ -125,7 +125,7 @@ def makeplot(predicted, y_test, location):
     fig1 = plt.gcf()
     fig1.savefig(os.path.join(figureloc, "predvsfinal.png"))
     
-def coefftable(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel):
+def coeff_table(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel):
     ohe_columns = listfun.list_abs(preprocessor, "pipeline-2", "onehotencoder", categorical_features)
     ohe_columns2 = listfun.list_abs(preprocessor, "pipeline-3", "onehotencoder", binary_features)
 

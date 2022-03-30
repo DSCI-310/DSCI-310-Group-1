@@ -21,8 +21,8 @@ df = pd.read_csv(csv_file,sep = ";")
 train_df, test_df = train_test_split(df, test_size = 0.2, random_state=100)
 #make training and testing split
 desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
-X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
-X_test, y_test = splitxy.splitxy(test_df, desiredfeatures, "G3")
+X_train, y_train = splitxy.split_xy(train_df, desiredfeatures, "G3")
+X_test, y_test = splitxy.split_xy(test_df, desiredfeatures, "G3")
 
 class Test_Square_Plot:
     def check_axs_equal(self, ax1, ax2):
