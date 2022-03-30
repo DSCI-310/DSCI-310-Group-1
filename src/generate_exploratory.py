@@ -29,7 +29,7 @@ def generator(path, location):
     
     desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
     train_df = pd.read_csv(path,sep = ";")
-    X_train, y_train = splitxy.splitxy(train_df, desiredfeatures, "G3")
+    X_train, y_train = splitxy.split_xy(train_df, desiredfeatures, "G3")
 
     describer = X_train.describe(include="all")
     describer.to_csv(os.path.join(location, "exploratory-stu-mat.csv"))
