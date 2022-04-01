@@ -227,21 +227,8 @@ const thebe_selector_output = ".output, .cell_output"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="exploratory-data-analysis">
 <h1>Exploratory Data Analysis<a class="headerlink" href="#exploratory-data-analysis" title="Permalink to this headline">¶</a></h1>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s2">&quot;display.max_rows&quot;</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="s2">&quot;display.max_columns&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>At the very first of the exploratory analysis process, it is always helpful to take a glance at the structures and details of the raw dataset we archived from the <a class="reference external" href="https://archive-beta.ics.uci.edu/ml/datasets/student+performance">UCI ML Repo</a>.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../data/raw/student-mat.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">1</span><span class="p">:]</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input tag_hide-output docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>
@@ -699,12 +686,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div></div></div>
 </div>
 <p>Then, we decided on a train test split of 80% training and 20% testing. This was because the number of samples in the dataset where moderately low (396) so we wanted more samples to train on. Using panda’s describe all and styler to make a table, we can find many useful pieces of information for all of our features inside the training set. For numerical features, we can see interesting pieces of info such as the average mother education is higher than the average father education. Furthermore, for categorical variables, we can see interesting info such as the most frequent parent status in our training set is that they are still living together and most people are not in a romantic relationship.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/exploratory-stu-mat.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;,&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
+<div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
 <div class="output text_html"><div>
 <style scoped>

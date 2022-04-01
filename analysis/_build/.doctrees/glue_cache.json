@@ -1,17 +1,5 @@
 {
   "methods": {
-    "ridge_alpha": {
-      "output_type": "display_data",
-      "metadata": {
-        "scrapbook": {
-          "name": "ridge_alpha",
-          "mime_prefix": ""
-        }
-      },
-      "data": {
-        "text/plain": "19.727"
-      }
-    },
     "mean_test_error": {
       "output_type": "display_data",
       "metadata": {
@@ -22,6 +10,18 @@
       },
       "data": {
         "text/plain": "4.609"
+      }
+    },
+    "ridge_alpha": {
+      "output_type": "display_data",
+      "metadata": {
+        "scrapbook": {
+          "name": "ridge_alpha",
+          "mime_prefix": ""
+        }
+      },
+      "data": {
+        "text/plain": "19.727"
       }
     }
   },
