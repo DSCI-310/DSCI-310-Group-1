@@ -230,6 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 </pre></div>
 </div>
 </div>
@@ -239,7 +240,28 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Therefore, we create the pipeline to pre-process our data and apply linear regression.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/cvtable.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rank_test_score&quot;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvtable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/cvtable.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s2">&quot;rank_test_score&quot;</span><span class="p">,</span><span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ridge_alpha</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">cvtable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cvtable</span><span class="p">[</span><span class="s1">&#39;rank_test_score&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;param_ridge__alpha&#39;</span><span class="p">],</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">mean_test_error</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">cvtable</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">cvtable</span><span class="p">[</span><span class="s1">&#39;rank_test_score&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;mean_test_score&#39;</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;ridge_alpha&#39;</span><span class="p">,</span> <span class="n">ridge_alpha</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;mean_test_error&#39;</span><span class="p">,</span> <span class="n">mean_test_error</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>19.727
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4.609
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cvtable</span>
 </pre></div>
 </div>
 </div>
@@ -276,52 +298,52 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>3</th>
       <td>8</td>
-      <td>0.018578</td>
-      <td>0.001218</td>
-      <td>14.169508</td>
-      <td>{'ridge__alpha': 14.1695082925079}</td>
-      <td>-4.615479</td>
-      <td>0.298376</td>
+      <td>0.019806</td>
+      <td>0.004730</td>
+      <td>19.726897</td>
+      <td>{'ridge__alpha': 19.726897439620764}</td>
+      <td>-4.608515</td>
+      <td>0.299571</td>
       <td>1</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>1</td>
-      <td>0.030933</td>
-      <td>0.003957</td>
-      <td>7.808103</td>
-      <td>{'ridge__alpha': 7.808103103435483}</td>
-      <td>-4.628946</td>
-      <td>0.296331</td>
-      <td>2</td>
-    </tr>
-    <tr>
-      <th>0</th>
-      <td>0</td>
-      <td>0.025338</td>
-      <td>0.002374</td>
-      <td>4.837726</td>
-      <td>{'ridge__alpha': 4.837726300972129}</td>
-      <td>-4.639230</td>
-      <td>0.294674</td>
-      <td>3</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4</td>
-      <td>0.024775</td>
-      <td>0.009861</td>
-      <td>4.328673</td>
-      <td>{'ridge__alpha': 4.3286728217547}</td>
-      <td>-4.641427</td>
-      <td>0.294295</td>
+      <td>7</td>
+      <td>0.017660</td>
+      <td>0.001383</td>
+      <td>14.589218</td>
+      <td>{'ridge__alpha': 14.589217678747614}</td>
+      <td>-4.614839</td>
+      <td>0.298478</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>6</td>
+      <td>0.018014</td>
+      <td>0.000793</td>
+      <td>0.469669</td>
+      <td>{'ridge__alpha': 0.4696687143345901}</td>
+      <td>-4.665356</td>
+      <td>0.289446</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>0.022149</td>
+      <td>0.003229</td>
+      <td>0.360900</td>
+      <td>{'ridge__alpha': 0.3609003915013911}</td>
+      <td>-4.666308</td>
+      <td>0.289224</td>
       <td>4</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>Ridge Regression takes in 1 hyperparameter that controls the complexity of the model. With higher levels of alpha, we have lower model complexity. We do 5 fold cross validation because it is not too computationally expensive, and we do randomizedsearch because it is better at exploring hyperparameters than gridsearch. The default scoring method of sklearn regression is R^2 score, but it found that RMSE score is easier to interpret in the context of this dataset, therefore we pass in RMSE as the scoring function. While we pass in neg RMSE, it is just as easy to interpret since we just want to look for how close the score is to 0, where the closer it is to 0, the less error it has. Thanks to scikit-learn, we have an easy method of finding out what our best performing hyperparameters are. In this case, the best performing hpyerparameter was a Ridge_alpha value of [9.93], with a mean test error of [4.623]</p>
+<p>Ridge Regression takes in 1 hyperparameter that controls the complexity of the model. With higher levels of alpha, we have lower model complexity. We do 5 fold cross validation because it is not too computationally expensive, and we do randomizedsearch because it is better at exploring hyperparameters than gridsearch. The default scoring method of sklearn regression is R^2 score, but it found that RMSE score is easier to interpret in the context of this dataset, therefore we pass in RMSE as the scoring function. While we pass in neg RMSE, it is just as easy to interpret since we just want to look for how close the score is to 0, where the closer it is to 0, the less error it has. Thanks to scikit-learn, we have an easy method of finding out what our best performing hyperparameters are. In this case, the best performing hpyerparameter was a Ridge_alpha value of <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">19.727</span></code></span>, with a mean test error of <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">4.609</span></code></span>.</p>
 </div>
 
     <script type="text/x-thebe-config">

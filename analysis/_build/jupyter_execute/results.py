@@ -7,6 +7,7 @@
 
 
 import pandas as pd
+from myst_nb import glue
 
 
 # Now that we have our best performing hyperparameter, we can pass in the best param into our model. Then we can train that model on the entire training set and evaluate it on our testing set.
@@ -14,10 +15,19 @@ import pandas as pd
 # In[2]:
 
 
-pd.read_csv('../results/finaltable.csv', sep = ";")
+finaltable = pd.read_csv('../results/finaltable.csv', sep = ";")
+
+rmse = round(abs(finaltable.iloc[0, 8]), 3)
+glue('rmse', rmse)
 
 
-# According to our best model, our RMSE is [3.83] which is better than the value we obtained from cross validation. This suggests one of two things:
+# In[3]:
+
+
+finaltable
+
+
+# According to our best model, our RMSE is {glue:}`rmse` which is better than the value we obtained from cross validation. This suggests one of two things:
 # 1. Our model generalized well on this new dataset, or 
 # 2. We happened to be lucky for the test set and the model wont generalize well to other datasets in practice.
 
@@ -31,7 +41,7 @@ pd.read_csv('../results/finaltable.csv', sep = ";")
 
 # Looking at what feature make the most impact in predicting high true grades, we see that the mother has a very large impact on the predicted grades. Depending on the mother's job, it can positively influence the final grade or it can negatively impact it. We also see that being in a romantic relationship seems to be the most impactful at predicting lower grades. Interestingly, study time isn't the most influential part feature despite intuition telling us that with higher study time, we would except to get higher grades.
 
-# In[3]:
+# In[4]:
 
 
 pd.read_csv('../results/coeff-table.csv', sep = ";").sort_values("coefficients", ascending=False)

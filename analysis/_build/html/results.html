@@ -230,6 +230,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>
 </pre></div>
 </div>
 </div>
@@ -237,7 +238,22 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Now that we have our best performing hyperparameter, we can pass in the best param into our model. Then we can train that model on the entire training set and evaluate it on our testing set.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/finaltable.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">finaltable</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;../results/finaltable.csv&#39;</span><span class="p">,</span> <span class="n">sep</span> <span class="o">=</span> <span class="s2">&quot;;&quot;</span><span class="p">)</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">finaltable</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">8</span><span class="p">]),</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;rmse&#39;</span><span class="p">,</span> <span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.823
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">finaltable</span>
 </pre></div>
 </div>
 </div>
@@ -275,20 +291,20 @@ const thebe_selector_output = ".output, .cell_output"
     <tr>
       <th>0</th>
       <td>8</td>
-      <td>0.018578</td>
-      <td>0.001218</td>
-      <td>14.169508</td>
-      <td>{'ridge__alpha': 14.1695082925079}</td>
-      <td>-4.615479</td>
-      <td>0.298376</td>
+      <td>0.019806</td>
+      <td>0.00473</td>
+      <td>19.726897</td>
+      <td>{'ridge__alpha': 19.726897439620764}</td>
+      <td>-4.608515</td>
+      <td>0.299571</td>
       <td>1</td>
-      <td>-3.834295</td>
+      <td>-3.823311</td>
     </tr>
   </tbody>
 </table>
 </div></div></div>
 </div>
-<p>According to our best model, our RMSE is [3.83] which is better than the value we obtained from cross validation. This suggests one of two things:</p>
+<p>According to our best model, our RMSE is <span class="pasted-inline"><code class="output text_plain docutils literal notranslate"><span class="pre">3.823</span></code></span> which is better than the value we obtained from cross validation. This suggests one of two things:</p>
 <ol class="simple">
 <li><p>Our model generalized well on this new dataset, or</p></li>
 <li><p>We happened to be lucky for the test set and the model wont generalize well to other datasets in practice.</p></li>
@@ -334,103 +350,103 @@ const thebe_selector_output = ".output, .cell_output"
       <th>0</th>
       <td>1</td>
       <td>Medu</td>
-      <td>0.871048</td>
+      <td>0.859685</td>
     </tr>
     <tr>
       <th>1</th>
       <td>6</td>
       <td>Mjob_health</td>
-      <td>0.783865</td>
+      <td>0.693181</td>
     </tr>
     <tr>
       <th>2</th>
       <td>14</td>
       <td>Fjob_teacher</td>
-      <td>0.684833</td>
+      <td>0.594668</td>
     </tr>
     <tr>
       <th>3</th>
       <td>8</td>
       <td>Mjob_services</td>
-      <td>0.449528</td>
+      <td>0.434356</td>
     </tr>
     <tr>
       <th>4</th>
       <td>0</td>
       <td>studytime</td>
-      <td>0.312556</td>
+      <td>0.305721</td>
     </tr>
     <tr>
       <th>5</th>
       <td>2</td>
       <td>Fedu</td>
-      <td>0.146562</td>
+      <td>0.158614</td>
     </tr>
     <tr>
       <th>6</th>
       <td>11</td>
       <td>Fjob_health</td>
-      <td>-0.066799</td>
+      <td>-0.038761</td>
     </tr>
     <tr>
       <th>7</th>
       <td>13</td>
       <td>Fjob_services</td>
-      <td>-0.147888</td>
+      <td>-0.133804</td>
     </tr>
     <tr>
       <th>8</th>
       <td>10</td>
       <td>Fjob_at_home</td>
-      <td>-0.209156</td>
+      <td>-0.181525</td>
     </tr>
     <tr>
       <th>9</th>
       <td>4</td>
       <td>traveltime</td>
-      <td>-0.229963</td>
+      <td>-0.231193</td>
     </tr>
     <tr>
       <th>10</th>
       <td>12</td>
       <td>Fjob_other</td>
-      <td>-0.260990</td>
+      <td>-0.240578</td>
     </tr>
     <tr>
       <th>11</th>
       <td>7</td>
       <td>Mjob_other</td>
-      <td>-0.298394</td>
+      <td>-0.284648</td>
     </tr>
     <tr>
       <th>12</th>
       <td>9</td>
       <td>Mjob_teacher</td>
-      <td>-0.410360</td>
+      <td>-0.357238</td>
     </tr>
     <tr>
       <th>13</th>
       <td>15</td>
       <td>Pstatus_T</td>
-      <td>-0.520461</td>
+      <td>-0.448467</td>
     </tr>
     <tr>
       <th>14</th>
       <td>5</td>
       <td>Mjob_at_home</td>
-      <td>-0.524639</td>
+      <td>-0.485651</td>
     </tr>
     <tr>
       <th>15</th>
       <td>3</td>
       <td>goout</td>
-      <td>-0.613642</td>
+      <td>-0.602007</td>
     </tr>
     <tr>
       <th>16</th>
       <td>16</td>
       <td>romantic_yes</td>
-      <td>-1.244385</td>
+      <td>-1.165705</td>
     </tr>
   </tbody>
 </table>
