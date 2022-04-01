@@ -69,6 +69,7 @@ To run the tests, please go to the root folder of the project and use the comman
   | numpy        | >= 1.2.0 |
   | pytest       | >= 7.0.1 |
   | docopt       | >= 0.6.2 |
+  | jupyter-book | >= 0.7.4 |
 
 
 ---
