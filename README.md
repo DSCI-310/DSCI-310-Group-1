@@ -51,6 +51,10 @@ docker build --tag dsci-310-project DSCI-310-Group-1
 docker run -it dsci-310-project
 ```
 
+### Running via Makefile
+
+The analysis can be run using the makefile with the command `make all` in the root directory. This requires you to have GNU Make installed. A link to the GNU Make website can be found here: https://www.gnu.org/software/make/
+
 ### Running the tests
 
 To run the tests, please go to the root folder of the project and use the command `pytest`
