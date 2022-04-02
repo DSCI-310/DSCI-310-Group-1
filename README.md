@@ -73,7 +73,7 @@ Afterwards you will find that there is a command in the terminal that looks some
 
 ### Running via Makefile
 
-The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis.
+The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis, where the commands for both the tests and the makefile can be run. Once you call makefile, you can see the results of our analysis at analysis/_build/html/index.html
 
 If you are getting an error, please run make clean first, before runnning make all.
 
