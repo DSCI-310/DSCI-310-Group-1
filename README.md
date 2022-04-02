@@ -41,14 +41,14 @@ docker run -it danielhou13/dsci-310-project
 
 ### Clone the repository
 
-If the first method does not work out, you can also clone the repository, and build the Docker image locally.
+If the first method does not work out, you can also clone the repository using the git clone command below, navigate to the repository, and use the docker commands.
 
 ```
 git clone https://github.com/DSCI-310/DSCI-310-Group-1
 
-docker build --tag dsci-310-project DSCI-310-Group-1
+docker build --tag dsci-310-project DSCI-310-Group-1 
 
-docker run -it dsci-310-project
+docker run --rm -p 8888:8888 dsci-group-1
 ```
 
 ### Running via Makefile
