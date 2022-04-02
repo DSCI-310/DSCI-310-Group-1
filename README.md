@@ -29,6 +29,19 @@ We test the model with cross validation and get an average cv-score of -4.61, wh
 
 ## How to run?
 
+
+```
+
+### Clone the repository
+
+The first step to running our analysis is to clone the repository using the git clone command below, and navigate to the repository.
+
+```
+git clone https://github.com/DSCI-310/DSCI-310-Group-1
+
+cd DSCI-310-Group-1
+```
+
 ### From DockerHub
 
 Our project is published at Dockerhub. Thus, it is convenient to run our repository directly in the terminal. Execute the following command:
@@ -37,17 +50,11 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 docker pull danielhou13/dsci-310-project:latest
 
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project
-```
 
-### Clone the repository
-
-If the first method does not work out, you can also clone the repository using the git clone command below, navigate to the repository, and use the docker commands.
+### Build using the Dockerfile
+Alternatively, if the first method does not work, then you can use the following commands to build the docker container and run our analysis in this manner.
 
 ```
-git clone https://github.com/DSCI-310/DSCI-310-Group-1
-
-cd DSCI-310-Group-1
-
 docker build -t dsci-310-group-1 .
 
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
@@ -57,7 +64,7 @@ Afterwards you will find that there is a command in the terminal that looks some
 
 ### Running via Makefile
 
-The analysis can be run using the makefile with the command `make all` in the root directory. This requires you to have GNU Make installed. A link to the GNU Make website can be found here: https://www.gnu.org/software/make/
+The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis.
 
 If you are getting an error, please run make clean first, before runnning make all.
 
