@@ -57,7 +57,7 @@ docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-p
 ```
 
 ### Build using the Dockerfile
-Alternatively, if the first method does not work, then you can use the following commands to build the docker container and run our analysis in this manner.
+Alternatively, if the first method does not work, then you can use the following commands to build the docker image via the dockerfile and run our analysis in this manner.
 
 ```
 docker build -t dsci-310-group-1 .
