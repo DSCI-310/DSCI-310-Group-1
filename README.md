@@ -36,20 +36,30 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 ```
 docker pull danielhou13/dsci-310-project:latest
 
-docker run -it danielhou13/dsci-310-project
+docker run --rm -p 8888:8888 danielhou13/dsci-310-project
 ```
 
 ### Clone the repository
 
-If the first method does not work out, you can also clone the repository, and build the Docker image locally.
+If the first method does not work out, you can also clone the repository using the git clone command below, navigate to the repository, and use the docker commands.
 
 ```
 git clone https://github.com/DSCI-310/DSCI-310-Group-1
 
-docker build --tag dsci-310-project DSCI-310-Group-1
+cd DSCI-310-Group-1
 
-docker run -it dsci-310-project
+docker build -t dsci-310-group-1 .
+
+docker run --rm -p 8888:8888 dsci-310-group-1 
 ```
+
+Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook
+
+### Running via Makefile
+
+The analysis can be run using the makefile with the command `make all` in the root directory. This requires you to have GNU Make installed. A link to the GNU Make website can be found here: https://www.gnu.org/software/make/
+
+If you are getting an error, please run make clean first, before runnning make all.
 
 ### Running the tests
 

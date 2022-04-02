@@ -19,10 +19,10 @@ import os
 
 def main(url, location):
     print("running")
-    downloadwebdata(url, location)
+    download_webdata(url, location)
     print("done")
     
-def downloadwebdata(url, location):
+def download_webdata(url, location):
     #inspiration for learning how to download from web taken from https://stackoverflow.com/questions/41218216/using-pandas-to-download-load-zipped-csv-file-from-url
     temp, _ = urllib.request.urlretrieve(url)
     compressed_file = zipfile.ZipFile(temp)
