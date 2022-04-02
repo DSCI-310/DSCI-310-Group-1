@@ -49,10 +49,10 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 ```
 docker pull danielhou13/dsci-310-project:latest
 
-#### powershell
+<!-- Powershell -->
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project
 
-#### git bash
+<!-- Git Bash -->
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project
 ```
 
@@ -62,11 +62,11 @@ Alternatively, if the first method does not work, then you can use the following
 ```
 docker build -t dsci-310-group-1 .
 
-#### powershell
+<!-- Powershell -->
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
 
-#### git bash
-docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project
+<!-- Git Bash -->
+docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 ```
 
 Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook
