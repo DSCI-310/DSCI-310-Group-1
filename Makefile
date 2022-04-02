@@ -2,7 +2,7 @@
 # date: 2022-03-18
 
 #includes the items for the exploratory data analysis and the final analysis 
-all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv analysis/_build/html/index.html
+all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv  analysis/_build/pdf/book.pdf
 
 #get the data from the web
 data/raw/student-mat.csv: src/gatherdata.py
@@ -19,11 +19,16 @@ results/figures/explore_numeric.png results/figures/explore_cat.png results/expl
 #perform regression and get final tables and plots
 results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv: src/regression.py data/student-mat-test.csv data/student-mat-train.csv
 	python src/regression.py "data/" "results/"
-    
+
+#create html render for the analysis
 analysis/_build/html/index.html: analysis/_config.yml analysis/_toc.yml analysis/exploratory_analysis.ipynb analysis/methods.ipynb analysis/results.ipynb analysis/references.bib
 	jupyter-book build analysis/
     
-    
+#create a viewable pdf render of the analysis
+analysis/_build/pdf/book.pdf: analysis/_build/html/index.html
+	jupyter-book build analysis/ --builder pdfhtml
+
+#remove all the added files created by the makefile
 clean :
 	rm -f data/raw/student-mat.csv
 	rm -f data/*.csv
