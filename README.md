@@ -46,9 +46,14 @@ If the first method does not work out, you can also clone the repository using t
 ```
 git clone https://github.com/DSCI-310/DSCI-310-Group-1
 
-docker build --tag dsci-310-project DSCI-310-Group-1 
+cd DSCI-310-Group
+{::comment}
+Your navigation command may change, so long as you get to the cloned repository
+{:/comment}
 
-docker run --rm -p 8888:8888 dsci-group-1
+docker build -t dsci-310-project .
+
+docker run --rm -p 8888:8888 dsci-310-project 
 ```
 
 ### Running via Makefile
