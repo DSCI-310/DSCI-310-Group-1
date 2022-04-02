@@ -2,7 +2,7 @@
 # date: 2022-03-18
 
 #includes the items for the exploratory data analysis and the final analysis 
-all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv  analysis/_build/html/index.html
+all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv  analysis/_build/html/index.html results/report/index.html
 
 #get the data from the web
 data/raw/student-mat.csv: src/gatherdata.py
@@ -23,6 +23,10 @@ results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv resu
 #create html render for the analysis
 analysis/_build/html/index.html: analysis/_config.yml analysis/_toc.yml analysis/exploratory_analysis.ipynb analysis/methods.ipynb analysis/results.ipynb analysis/references.bib
 	jupyter-book build analysis/
+
+# create a copy of the report in results/
+results/report/index.html: 
+	cp -r analysis/_build/html results/report
 
 #remove all the added files created by the makefile
 clean :
