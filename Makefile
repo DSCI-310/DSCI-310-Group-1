@@ -2,7 +2,7 @@
 # date: 2022-03-18
 
 #includes the items for the exploratory data analysis and the final analysis 
-all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv
+all : results/figures/explore_numeric.png results/figures/explore_cat.png results/exploratory-stu-mat.csv results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv analysis/_build/html/index.html
 
 #get the data from the web
 data/raw/student-mat.csv: src/gatherdata.py
@@ -19,9 +19,13 @@ results/figures/explore_numeric.png results/figures/explore_cat.png results/expl
 #perform regression and get final tables and plots
 results/coeff-table.csv results/figures/predvsfinal.png results/cvtable.csv results/finaltable.csv: src/regression.py data/student-mat-test.csv data/student-mat-train.csv
 	python src/regression.py "data/" "results/"
-
+    
+analysis/_build/html/index.html: analysis/_config.yml analysis/_toc.yml analysis/exploratory_analysis.ipynb analysis/methods.ipynb analysis/results.ipynb analysis/references.bib
+	jupyter-book build analysis/
+    
+    
 clean :
 	rm -f data/raw/student-mat.csv
 	rm -f data/*.csv
-	rm -f results/*.csv
-	rm -f results/figures/*.png
+	rm -rf results
+	rm -rf analysis/_build
