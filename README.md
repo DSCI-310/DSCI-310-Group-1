@@ -73,13 +73,13 @@ Afterwards you will find that there is a command in the terminal that looks some
 
 ### Running via Makefile
 
-The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis, where the commands for both the tests and the makefile can be run. Once you call makefile, you can see the results of our analysis at analysis/_build/html/index.html
+The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis, where the commands for both the tests and the makefile can be run. Once you run the makefile using `make all`, you can see the results of our analysis by going to your LOCAL repository at analysis/_build/html/index.html, and opening the html file there.
 
 If you are getting an error, please run make clean first, before runnning make all.
 
 ### Running the tests
 
-To run the tests, please go to the root folder of the project and use the command `pytest`
+To run the tests, please go to the root folder of the project and use the command `pytest`.
 
 ## Dependencies
 
