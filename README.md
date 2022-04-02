@@ -47,13 +47,13 @@ cd DSCI-310-Group-1
 Our project is published at Dockerhub. Thus, it is convenient to run our repository directly in the terminal. Execute the following command:
 
 ```
-docker pull danielhou13/dsci-310-project:latest
+docker pull danielhou13/dsci-310-project:v0.18.0
 
 <!-- Powershell -->
-docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project:latest
+docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project:v0.18.0
 
 <!-- Git Bash -->
-docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project:latest
+docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project:v0.18.0
 ```
 
 ### Build using the Dockerfile
