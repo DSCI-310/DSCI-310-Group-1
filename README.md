@@ -50,10 +50,10 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 docker pull danielhou13/dsci-310-project:latest
 
 <!-- Powershell -->
-docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project
+docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project:latest
 
 <!-- Git Bash -->
-docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project
+docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project:latest
 ```
 
 ### Build using the Dockerfile
