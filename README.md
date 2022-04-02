@@ -36,7 +36,7 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 ```
 docker pull danielhou13/dsci-310-project:latest
 
-docker run --rm -p 8888:8888 danielhou13/dsci-310-project:latest
+docker run --rm -p 8888:8888 danielhou13/dsci-310-project
 ```
 
 ### Clone the repository
