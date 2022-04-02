@@ -59,6 +59,8 @@ Afterwards you will find that there is a command in the terminal that looks some
 
 The analysis can be run using the makefile with the command `make all` in the root directory. This requires you to have GNU Make installed. A link to the GNU Make website can be found here: https://www.gnu.org/software/make/
 
+If you are getting an error, please run make clean first, before runnning make all.
+
 ### Running the tests
 
 To run the tests, please go to the root folder of the project and use the command `pytest`
