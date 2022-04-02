@@ -50,6 +50,7 @@ Our project is published at Dockerhub. Thus, it is convenient to run our reposit
 docker pull danielhou13/dsci-310-project:latest
 
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project
+```
 
 ### Build using the Dockerfile
 Alternatively, if the first method does not work, then you can use the following commands to build the docker container and run our analysis in this manner.
