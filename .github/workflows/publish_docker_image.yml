@@ -5,8 +5,7 @@ on:
       - main
     paths: 
       - 'Dockerfile'
-      - 'analysis/**'
-      - 'src/**'
+      
 jobs:
   build:
     runs-on: ubuntu-latest
