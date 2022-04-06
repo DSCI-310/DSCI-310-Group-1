@@ -98,4 +98,8 @@ class Test_splitxy:
             X_train, y_train= splitxy.split_xy(train_df, "G3", samplefeatures)
             X_train2, y_train= splitxy.split_xy(train_df, "G3", "G3")
             X_test, y_test = splitxy.split_xy(test_df, samplefeatures, "G3")
-            
+    
+    def test_empty(self):
+        print("empty dataframe")
+        dfObj = pd.DataFrame(columns=['User_ID', 'UserName', 'Action'])
+        X_train, y_train = splitxy.split_xy(dfObj, 'User_ID', "Action")

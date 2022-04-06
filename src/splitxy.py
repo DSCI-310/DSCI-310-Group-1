@@ -6,7 +6,7 @@ def split_xy(df, desiredfeatures, target):
     # Split data into target and desired features
     #
     # Takes in a dataframe and extracts the desired features used
-    # to predict a specified target variable in the 
+    # to predict a specified target variable
     #
     # @param df A data frame.
     # @param desiredfeatures Target feature(s) you desire for your analysis in list or string form
@@ -14,14 +14,15 @@ def split_xy(df, desiredfeatures, target):
     #
     # @return Two data frames or series each with number of columns equal to the number of variables passed in
     # as desiredfeatures and target. Whether it's a dataframe or pd.series depends on number of variables passed into
-    # the arguments for desiredfeatures and target. If either passes in a list, it will return a dataframe
-    # if either passes in a single string, it will return a pd.series.
-    #    The dataframe/series (named X_df) contains only the columns listed in desiredfeatures from the input data frame.
-    #    The second dataframe/series (named y_df) contains only the columns listed in target from the input data frame.
+    # the arguments for desiredfeatures and target. If either passes in a list, it will return a dataframe.
+    # If either passes in a single string, it will return a pd.series.
+    # The dataframe/series (named X_df) contains only the columns listed in desiredfeatures from the input data frame.
+    # The second dataframe/series (named y_df) contains only the columns listed in target from the input data frame.
     #
     # @examples
     # X_train, y_train = split_xy(train_df, ["feature1", "feature2", "feature3"], "G3")
     # X_train, y_train = split_xy(train_df, "G3", ["feature1", "feature2", "feature3"])
+    
     X_df = None
     y_df = None
     
