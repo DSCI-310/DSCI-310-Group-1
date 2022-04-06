@@ -23,7 +23,7 @@ Since we are using a mixture of categorical variables and numeric variables to p
 
 We performed a 80-20 split on the dataset and trained a multi-variable least-square regression model on the training data with the 9 features we selected for the model. The simplest method of doing least squares regression is Ridge Regression, which is functionally similar to Linear Regression, but better at avoiding unexpected coefficients.
 
-We test the model with cross validation and get an average cv-score of -4.61, which means an error of 4.61 and a final RMSE error of 3.83. As the final grade 'G3' is in a 20 point scale, we find that an error of 3.83 roughly equates to ann average of a 19.15 percent difference between your predicted grade and the actual grade. 
+We test the model with cross validation and get an average cv-score of -4.61, which means an error of 4.61 and a final RMSE error of 3.83. As the final grade `G3` is in a 20 point scale, we find that an error of 3.83 roughly equates to an average of a 19.15 percent difference between your predicted grade and the actual grade. In other words, your actual grade may be about a letter grade off of what it actually is. As such, we see that there is clear difficulty in trying to predict student grades using mostly demographic features.
 
 
 
