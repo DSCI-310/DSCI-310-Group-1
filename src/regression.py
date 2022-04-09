@@ -8,7 +8,7 @@ Options:
 """
 
 from docopt import docopt
-from grouponefunctions import grouponefunctions as grp1
+from grouponefunctions.grouponefunctions import split_xy, list_abs
 import os
 import matplotlib.pyplot as plt
 import numpy as np
@@ -35,8 +35,8 @@ def main(inloc, location):
     desiredfeatures = ["studytime", "Pstatus", "Medu", "Fedu", "Mjob", "Fjob", "goout","romantic","traveltime"]
     train_df = pd.read_csv(os.path.join(inloc, "student-mat-train.csv"),sep = ";")
     test_df = pd.read_csv(os.path.join(inloc, "student-mat-test.csv"),sep = ";")
-    X_train, y_train = grp1.split_xy(train_df, desiredfeatures, "G3")
-    X_test, y_test = grp1.split_xy(test_df, desiredfeatures, "G3")
+    X_train, y_train = split_xy(train_df, desiredfeatures, "G3")
+    X_test, y_test = split_xy(test_df, desiredfeatures, "G3")
     
     numeric_features = ["studytime", "Medu", "Fedu", "goout", "traveltime"]
     categorical_features = ["Mjob", "Fjob"]
@@ -125,8 +125,8 @@ def make_plot(predicted, y_test, location):
     fig1.savefig(os.path.join(figureloc, "predvsfinal.png"))
     
 def coeff_table(location, preprocessor, numeric_features, categorical_features, binary_features, finalmodel):
-    ohe_columns = grp1.list_abs(preprocessor, "pipeline-2", "onehotencoder", categorical_features)
-    ohe_columns2 = grp1.list_abs(preprocessor, "pipeline-3", "onehotencoder", binary_features)
+    ohe_columns = list_abs(preprocessor, "pipeline-2", "onehotencoder", categorical_features)
+    ohe_columns2 = list_abs(preprocessor, "pipeline-3", "onehotencoder", binary_features)
 
     new_columns = numeric_features + ohe_columns + ohe_columns2
 
