@@ -104,8 +104,9 @@ To run the tests, please go to the root folder of the project and use the comman
   | pytest       | >= 7.0.1 |
   | docopt       | >= 0.6.2 |
   | jupyter-book | >= 0.12.2 |
-  |grouponefunctions | >= 0.1.4 |
+  | grouponefunctions | >= 0.1.4 |
 
+You can find the documentation for our specialized package "grouponefunctions" here: https://github.com/DSCI-310/DSCI_310_group_1_package
 
 ---
 
