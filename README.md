@@ -71,15 +71,6 @@ docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 
 Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
 
-### Installing our package
-
-After opening the Jupyter Terminal, please run the following command to install the following [package](https://github.com/DSCI-310/DSCI_310_group_1_package):
-
-```
-pip install grouponefunctions
-```
-This will make running our analysis much smoother.
-
 ### Running via Makefile
 
 The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis, where the commands for both the tests and the makefile can be run. After you run the makefile using `make all`, you can see the results of our analysis by going to your LOCAL repository at **results/report/index.html**, and opening the html file there. After opening using index.html, you can navigate to different parts of our analysis using the sidebar.
