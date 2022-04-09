@@ -9,10 +9,8 @@ Options:
 from docopt import docopt 
 import pandas as pd
 from sklearn.model_selection import train_test_split
-import splitxy
 import os
-import plotSquareData
-from DSCI_310_group_1_package import DSCI_310_group_1_package as grp1
+from grouponefunctions import grouponefunctions as grp1
 
 opt = docopt(__doc__)
 DELIMITERS = ". , ; : ? $ @ ^ < > # % ` ! * - = ( ) [ ] { } / \" '".split()
