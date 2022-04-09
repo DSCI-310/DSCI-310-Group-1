@@ -1,4 +1,4 @@
-# Use scipy notebook as default 
+# Use scipy notebook as default
 FROM jupyter/scipy-notebook:hub-2.1.1
 
 #install python packages
@@ -6,8 +6,8 @@ RUN conda install -c conda-forge matplotlib>=3.4.0 \
     pandas>=1.4.0 \
     scikit-learn>=1.0.0 \
     numpy>=1.21.0 \
-    docopt>=0.6.2 
+    docopt>=0.6.2
 
 #install custom package and jupyter book
-RUN pip install grouponefunctions\
-    jupyter-book
+RUN pip install grouponefunctions>=0.1.4\
+    jupyter-book>=0.12.2
