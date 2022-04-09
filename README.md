@@ -125,12 +125,11 @@ If you encountered an error, or wanted to re-run the analysis, make sure to run 
 
   | Package      | Version |
   | ------------ | ------- |
-  | python | >= 3.9.10 |
-  | pandas       | >= 1.3.0 |
+  | python | >= 3.9 |
+  | pandas       | >= 1.4.0 |
   | matplotlib   | >= 3.4.0 |
   | scikit-learn | >= 1.0.0 |
-  | numpy        | >= 1.2.0 |
-  | pytest       | >= 7.0.1 |
+  | numpy        | >= 1.20.0 |
   | docopt       | >= 0.6.2 |
   | jupyter-book | >= 0.12.2 |
   | grouponefunctions | >= 0.1.4 |
