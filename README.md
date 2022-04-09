@@ -77,6 +77,7 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
 <!-- Git Bash -->
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 ```
+Note: you do not need to run `pip install grouponefunctions` using this method as the dockerfile will install it for you.
 
 ### Running via Makefile
 
