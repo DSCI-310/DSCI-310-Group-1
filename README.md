@@ -98,7 +98,7 @@ To run the tests, please go to the root folder of the project and use the comman
   | Package      | Version |
   | ------------ | ------- |
   | python | >= 3.9.10 |
-  | pandas | >= 1.3.0 |
+  | pandas       | >= 1.3.0 |
   | matplotlib   | >= 3.4.0 |
   | scikit-learn | >= 1.0.0 |
   | numpy | >= 1.2.0 |
@@ -113,6 +113,6 @@ You can find the documentation for our specialized package "grouponefunctions" h
 
 ---
 
-[![License: CC BY  4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) *DSCI-310-Group1-Project Report © 2022 by DSCI-310-Gr1 is licensed under CC BY-SA 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/*.
+[![License: CC BY-SA  4.0](https://img.shields.io/badge/License-CC_BY--SA_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/) *DSCI-310-Group1-Project Report © 2022 by DSCI-310-Gr1 is licensed under CC BY-SA 4.0. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/4.0/*.
 
-*[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) DSCI-310-Group1-Project Code © 2022 by DSCI-310-Gr1 is licensed under MIT. To view a copy of this liscence, visit https://github.com/DSCI-310/DSCI-310-Group-1/blob/main/LICENSE.md*. 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT) *DSCI-310-Group1-Project Code © 2022 by DSCI-310-Gr1 is licensed under MIT. To view a copy of this liscence, visit https://github.com/DSCI-310/DSCI-310-Group-1/blob/main/LICENSE.md*.
