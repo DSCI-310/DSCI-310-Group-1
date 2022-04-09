@@ -55,9 +55,18 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-pr
 <!-- Git Bash -->
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project:v0.18.0
 ```
+Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
+
+Once you are in Jupyter Lab, please open the terminal and run the following command:
+
+```
+pip install grouponefunctions
+```
+
+This will install the necessary functions to run our analysis.
 
 ### Build using the Dockerfile
-Alternatively, if the first method does not work, then you can use the following commands to build the docker image via the dockerfile and run our analysis in this manner.
+Alternatively, if the first method does not work, then you can use the following commands to build the docker image via the dockerfile and run our analysis in this manner. You can open Jupyter Lab in the same manner as the previous method.
 
 ```
 docker build -t dsci-310-group-1 .
@@ -68,8 +77,6 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
 <!-- Git Bash -->
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 ```
-
-Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
 
 ### Running via Makefile
 
