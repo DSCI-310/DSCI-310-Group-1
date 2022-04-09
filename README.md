@@ -23,20 +23,20 @@ Since we are using a mixture of categorical variables and numeric variables to p
 
 We performed a 80-20 split on the dataset and trained a multi-variable least-square regression model on the training data with the 9 features we selected for the model. The simplest method of doing least squares regression is Ridge Regression, which is functionally similar to Linear Regression, but better at avoiding unexpected coefficients.
 
-We test the model with cross validation and get an average cv-score of -4.61, which means an error of 4.61 and a final RMSE error of 3.83. As the final grade `G3` is in a 20 point scale, we find that an error of 3.83 roughly equates to an average of a 19.15 percent difference between your predicted grade and the actual grade. In other words, your actual grade may be about a letter grade off of what it actually is. As such, we see that there is clear difficulty in trying to predict student grades using mostly demographic features.
+We test the model with cross validation and examine the average cv-score and final RMSE error. We expect the numeric figures to vary upon each round of replication. However, most of our results suggest that the actual grade may be about a letter grade off of what it actually is. As such, we see that there is clear difficulty in trying to predict student grades using mostly demographic features. 
 
 
 
 ## How to run?
 
-
+Replicating our analysis is possible. Follow the instructions below to produce your own version of the report.
 
 
 ### Clone the repository
 
 The first step to running our analysis is to clone the repository using the git clone command below, and navigate to the repository.
 
-```
+```bash
 git clone https://github.com/DSCI-310/DSCI-310-Group-1
 
 cd DSCI-310-Group-1
@@ -46,48 +46,60 @@ cd DSCI-310-Group-1
 
 Our project is published at Dockerhub. Thus, it is convenient to run our repository directly in the terminal. Execute the following command:
 
-```
-docker pull danielhou13/dsci-310-project:latest
+#### 1. Achieve the Docker image
 
-<!-- Powershell -->
+```bash
+docker pull danielhou13/dsci-310-project:latest
+```
+
+#### 2. Run the environment for analysis
+
+```bash
+# For Powershell 
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work danielhou13/dsci-310-project:latest
 
-<!-- Git Bash -->
+# For Git Bash, Linux or Mac
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-project:latest
 ```
-Afterwards you will find that there is a command in the terminal that looks something like this: http://127.0.0.1:8888/lab?token={TOKEN}. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
-
-Once you are in Jupyter Lab, please open the terminal and run the following command:
-
-```
-pip install grouponefunctions
-```
-
-This will install the necessary functions to run our analysis.
+Afterwards you will find that there is a command in the terminal that looks something similar to `http://127.0.0.1:8888/lab?token={TOKEN}`. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
 
 ### Build using the Dockerfile
 Alternatively, if the first method does not work, then you can use the following commands to build the docker image via the dockerfile and run our analysis in this manner. You can open Jupyter Lab in the same manner as the previous method.
 
-```
+```bash
 docker build -t dsci-310-group-1 .
 
-<!-- Powershell -->
+# For Powershell
 docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
 
-<!-- Git Bash -->
+# For Git Bash, Linux or Mac
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 ```
-**Note**: you do not need to run `pip install grouponefunctions` using this method as the dockerfile will install it for you.
-
 ### Running via Makefile
 
-The analysis can be run using the makefile with the command `make all` after using the command `cd work` in the Jupyter Terminal. That takes you to the root folder of the analysis, where the commands for both the tests and the makefile can be run. After you run the makefile using `make all`, you can see the results of our analysis by going to your LOCAL repository at **results/report/index.html**, and opening the html file there. After opening using index.html, you can navigate to different parts of our analysis using the sidebar.
+When you successfully enter the interface of Jupyter Lab, there are several additional steps to follow to reproduce the report for this analysis.
 
-If you are getting an error, please run make clean first, before runnning make all.
+#### 1. Enter the work directory
 
-### Running the tests
+Under any `Launcher` tab in Jupyter Lab, select `Terminal` in the `Other` section. Then type input the command:
 
-To run the tests, please go to the root folder of the project and use the command `pytest`.
+```bash
+cd work
+```
+
+That takes you to the root folder of the analysis where the makefile can be run. 
+
+#### 2. Reproduce the report
+
+This analysis can be run using the makefile command. In the terminal, input the command:
+
+```bash
+makefile all
+```
+
+When the procedure completes, you can view the report of our analysis by openning the `index.html` file locating at `results/report/index.html` in the repository. You can also browse through the raw dataset and intermediate data used for the analysis under the `results/` directory.
+
+If you encountered an error, or wanted to re-run the analysis, make sure to run `make clean` to clean the current work space.
 
 ## Dependencies
 
@@ -107,7 +119,9 @@ To run the tests, please go to the root folder of the project and use the comman
   | jupyter-book | >= 0.12.2 |
   | grouponefunctions | >= 0.1.4 |
 
-You can find the documentation for our specialized package "grouponefunctions" here: https://github.com/DSCI-310/DSCI_310_group_1_package
+Our specialized package `grouponefunctions` includes helper functions that smoothen the reproduceable process. You can find the documentation [here](https://github.com/DSCI-310/DSCI_310_group_1_package).
+
+
 
 ---
 
