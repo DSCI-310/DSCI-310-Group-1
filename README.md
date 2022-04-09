@@ -4,6 +4,8 @@
 
 
 
+
+
 ## Summary
 
 For this project, we put our focus on predicting students’ final grades. Being able to efficiently predict the final grade allows a student to track their current progress and plan in advanced. The dataset being used is recorded at [UCI ML Repo](https://archive-beta.ics.uci.edu/ml/datasets/student+performance). We are particularly interested in how would the following features provided in the data could contribute to the prediction of students’ final grade `G3`:
@@ -27,9 +29,12 @@ We test the model with cross validation and examine the average cv-score and fin
 
 
 
+
+
 ## How to run?
 
 Replicating our analysis is possible. Follow the instructions below to produce your own version of the report.
+
 
 
 ### Clone the repository
@@ -41,6 +46,8 @@ git clone https://github.com/DSCI-310/DSCI-310-Group-1
 
 cd DSCI-310-Group-1
 ```
+
+
 
 ### From DockerHub
 
@@ -63,7 +70,10 @@ docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work danielhou13/dsci-310-p
 ```
 Afterwards you will find that there is a command in the terminal that looks something similar to `http://127.0.0.1:8888/lab?token={TOKEN}`. Copy paste it into your web browser of choice to load our notebook. Note, if you have another instance of Jupyter Lab open, it may cause issues.
 
+
+
 ### Build using the Dockerfile
+
 Alternatively, if the first method does not work, then you can use the following commands to build the docker image via the dockerfile and run our analysis in this manner. You can open Jupyter Lab in the same manner as the previous method.
 
 ```bash
@@ -75,6 +85,8 @@ docker run --rm -p 8888:8888 -v ${PWD}:/home/jovyan/work dsci-310-group-1
 # For Git Bash, Linux or Mac
 docker run --rm -p 8888:8888 -v /$(pwd):/home/jovyan/work dsci-310-group-1
 ```
+
+
 ### Running via Makefile
 
 When you successfully enter the interface of Jupyter Lab, there are several additional steps to follow to reproduce the report for this analysis.
@@ -101,6 +113,10 @@ When the procedure completes, you can view the report of our analysis by opennin
 
 If you encountered an error, or wanted to re-run the analysis, make sure to run `make clean` to clean the current work space.
 
+
+
+
+
 ## Dependencies
 
 - Docker base image: `jupyter/scipy-notebook:hub-2.1.1` 
@@ -120,6 +136,8 @@ If you encountered an error, or wanted to re-run the analysis, make sure to run 
   | grouponefunctions | >= 0.1.4 |
 
 Our specialized package `grouponefunctions` includes helper functions that smoothen the reproduceable process. You can find the documentation [here](https://github.com/DSCI-310/DSCI_310_group_1_package).
+
+
 
 
 
