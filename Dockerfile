@@ -8,4 +8,7 @@ RUN conda install -c conda-forge matplotlib>=3.4.0 \
     numpy>=1.2.0 \
     pytest>=7.0.1 \
     docopt>=0.6.2 \
-    jupyter-book>=0.12.2 \
+    jupyter-book>=0.12.2 
+
+#install custom package
+RUN pip install grouponefunctions
